@@ -11,9 +11,6 @@ export const createFmcScrambleToNormalScramble = () => {
   ) {
     scramble = threeByThree.get(1)[0]
   }
-  return `Scramble: ${cubeNotationNormalizer(
-    `R' U' F ${scramble} R' U' F`,
-  )}\nInverse: ${cubeNotationNormalizer(`R' U' F ${scramble} R' U' F`, {
-    invert: true,
-  })}`
+
+  return `R' U' F ${scramble} R' U' F`
 }
