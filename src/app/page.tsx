@@ -1,4 +1,4 @@
-import { LoginButton, LogoutButton } from "@/component/molecules/LoginButton";
+import { LoginButton, LogoutButton } from "@/components/molecules/LoginButton";
 
 export default function Home() {
   return (
