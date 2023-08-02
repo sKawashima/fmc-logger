@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm-run-all -n -l -p dev:*",
-    "dev:front": "next dev",
+    "dev:app": "next dev",
     "dev:db": "docker compose up",
     "build": "next build",
     "start": "next start",
