@@ -6,6 +6,8 @@ specifiers:
   '@types/node': 20.4.5
   '@types/react': 18.2.18
   '@types/react-dom': 18.2.7
+  '@types/scrambo': ^0.3.0
+  cube-notation-normalizer: ^1.0.0
   eslint: 8.46.0
   eslint-config-next: 13.4.12
   husky: ^8.0.3
@@ -18,6 +20,7 @@ specifiers:
   prisma-erd-generator: ^1.8.0
   react: 18.2.0
   react-dom: 18.2.0
+  scrambo: ^0.3.0
   typescript: 5.1.6
 
 dependencies:
@@ -26,6 +29,7 @@ dependencies:
   '@types/node': 20.4.5
   '@types/react': 18.2.18
   '@types/react-dom': 18.2.7
+  cube-notation-normalizer: 1.0.0
   eslint: 8.46.0
   eslint-config-next: 13.4.12_7haavtekmro7ptbnqmctjaodju
   next: 13.4.12_biqbaboplfbrettd7655fr4n2y
@@ -34,9 +38,11 @@ dependencies:
   prisma-erd-generator: 1.8.0_faewjmnxzg3lw7fzypr36x5m7q
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  scrambo: 0.3.0
   typescript: 5.1.6
 
 devDependencies:
+  '@types/scrambo': 0.3.0
   husky: 8.0.3
   lint-staged: 13.2.3
   npm-run-all: 4.1.5
@@ -427,6 +433,10 @@ packages:
   /@types/scheduler/0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: false
+
+  /@types/scrambo/0.3.0:
+    resolution: {integrity: sha512-MKOTltglyMmNIhODcTtiV2CbuL/ofciRKlsiaBNbcGEVcl++PFocYjksDgc0aH4x5MfP5wPGAL0oL0Ad9zB1qw==}
+    dev: true
 
   /@types/yauzl/2.10.0:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
@@ -857,6 +867,10 @@ packages:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
     engines: {node: '>=14'}
 
+  /commander/2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+    dev: false
+
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
@@ -904,6 +918,12 @@ packages:
 
   /csstype/3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+    dev: false
+
+  /cube-notation-normalizer/1.0.0:
+    resolution: {integrity: sha512-s/3WUwURc0ap89qPw/wz2h4w5Nki4lzWu/xVUATKbsYda/K0b4hRE/MJ/tClueEORPAbsqm6+tzzzmg1zChVnA==}
+    dependencies:
+      lodash: 4.17.21
     dev: false
 
   /damerau-levenshtein/1.0.8:
@@ -2058,6 +2078,10 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: false
 
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
+
   /log-update/4.0.0:
     resolution: {integrity: sha512-9fkkDevMefjg0mmzWFBW8YkFP91OrizzkW3diF7CpG+S2EYdy4+TVfGwz1zeF8x7hCx1ovSPTOE9Ngib74qqUg==}
     engines: {node: '>=10'}
@@ -2830,6 +2854,13 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /scrambo/0.3.0:
+    resolution: {integrity: sha512-Lap6PiQX6k/zg8NSmJwPOD/oFpLsxbTFk6DSI1J0iJQKLFYiKFmlY6oc/kqP0ltzKoTqP5ZV0+DkpBVHwhyiqQ==}
+    hasBin: true
+    dependencies:
+      commander: 2.20.3
     dev: false
 
   /semver/5.7.2:
