@@ -1,3 +1,5 @@
+[![Build CI](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml) ![last deploy](https://img.shields.io/github/last-commit/sKawashima/blog/master.svg?label=last%20deploy)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
