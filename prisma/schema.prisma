@@ -60,3 +60,9 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Scramble {
+  id        Int      @id @default(autoincrement())
+  scramble  String
+  createdAt DateTime @default(now())
+}
