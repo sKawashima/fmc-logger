@@ -38,6 +38,13 @@ erDiagram
     DateTime expires
     }
 
+
+  "Scramble" {
+    Int id "🗝️"
+    String scramble
+    DateTime createdAt
+    }
+
     "Account" o|--|| "User" : "user"
     "Session" o|--|| "User" : "user"
     "User" o{--}o "Account" : "accounts"
