@@ -61,7 +61,7 @@ I will not consider Views that relate to others, such as UserCollectionView and 
 ```mermaid
 classDiagram
 class TopPage {
-  todaysScramble: Scramble
+  todaysScrambleLink: Scramble
 }
 class UserPage {
   userName: string
