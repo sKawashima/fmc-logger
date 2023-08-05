@@ -1,3 +1,4 @@
+import { SolutionAnswerInput } from '@/components/organisms/SolutionAnswerInput'
 import { getScramble } from '@/services/scramble'
 import { notFound } from 'next/navigation'
 
@@ -14,6 +15,7 @@ export default async function ScramblePage(props: ScramblePageParams) {
     <>
       <p>scramble:</p>
       <p>{scramble?.scramble}</p>
+      <SolutionAnswerInput />
     </>
   )
 }
