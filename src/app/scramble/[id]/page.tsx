@@ -7,7 +7,6 @@ type ScramblePageParams = {
 }
 
 export default async function ScramblePage(props: ScramblePageParams) {
-  console.log(props)
   const scramble = await getScramble(props.params.id)
   if (!scramble) notFound()
 
