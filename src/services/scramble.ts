@@ -45,6 +45,5 @@ export const getScramble = async (id: number) => {
       id: Number(id),
     },
   })
-  console.log(scramble)
   return scramble
 }
