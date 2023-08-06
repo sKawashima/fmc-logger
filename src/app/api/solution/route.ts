@@ -1,8 +1,7 @@
 import { authOptions } from '@/resources/options'
 import { makeSolution } from '@/services/solution'
-import { NextApiRequest, NextApiResponse } from 'next'
 import { getServerSession } from 'next-auth'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { streamToString } from 'next/dist/server/stream-utils/node-web-streams-helper'
 
 type SolutionPostBody = {
@@ -11,9 +10,12 @@ type SolutionPostBody = {
   comment?: string
 }
 
-export const POST = async (req: NextApiRequest) => {
+export const POST = async (req: NextRequest) => {
   const session = await getServerSession(authOptions)
   const user = session?.user
+  if (!req.body)
+    return NextResponse.json({ message: 'No body' }, { status: 400 })
+
   const reqBody = JSON.parse(await streamToString(req.body)) as SolutionPostBody
   if (!user || !user.email) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
