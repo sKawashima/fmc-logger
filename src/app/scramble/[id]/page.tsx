@@ -2,12 +2,11 @@ import { SolutionAnswerInput } from '@/components/organisms/SolutionAnswerInput'
 import { getScramble } from '@/services/scramble'
 import { notFound } from 'next/navigation'
 
-type ScramblePageParams = {
+type Props = {
   params: { id: number }
-  searchParams: {}
 }
 
-export default async function ScramblePage(props: ScramblePageParams) {
+export default async function ScramblePage(props: Props) {
   const scramble = await getScramble(props.params.id)
   if (!scramble) notFound()
 
@@ -15,7 +14,7 @@ export default async function ScramblePage(props: ScramblePageParams) {
     <>
       <p>scramble:</p>
       <p>{scramble?.scramble}</p>
-      <SolutionAnswerInput />
+      <SolutionAnswerInput scrambleId={props.params.id} />
     </>
   )
 }

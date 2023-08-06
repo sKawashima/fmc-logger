@@ -1,6 +1,10 @@
 'use client'
 
-export const SolutionAnswerInput = () => {
+type Props = {
+  scrambleId: number
+}
+
+export const SolutionAnswerInput = (props: Props) => {
   return (
     <div>
       <textarea id="solutionInput" />
@@ -14,7 +18,15 @@ export const SolutionAnswerInput = () => {
             'commentInput',
           ) as HTMLTextAreaElement
           if (!solutionInputElement || !commentInputElement) return
-          console.log(solutionInputElement.value, commentInputElement.value)
+          const responce = await fetch('/api/solution', {
+            method: 'POST',
+            body: JSON.stringify({
+              scrambleId: props.scrambleId,
+              solution: solutionInputElement.value,
+              comment: commentInputElement.value,
+            }),
+          })
+          console.log(responce)
         }}
       >
         submit
