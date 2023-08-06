@@ -45,8 +45,20 @@ erDiagram
     DateTime createdAt
     }
 
+
+  "Solution" {
+    Int id "🗝️"
+    String solution
+    String comment "❓"
+    DateTime createdAt
+    }
+
     "Account" o|--|| "User" : "user"
     "Session" o|--|| "User" : "user"
     "User" o{--}o "Account" : "accounts"
     "User" o{--}o "Session" : "sessions"
+    "User" o{--}o "Solution" : "Solution"
+    "Scramble" o{--}o "Solution" : "Solution"
+    "Solution" o|--|| "Scramble" : "scramble"
+    "Solution" o|--|| "User" : "user"
 ```

@@ -35,3 +35,15 @@ export const makeTodaysScramble = async () => {
     }))
   return todayScramble
 }
+
+export const getScramble = async (id: number) => {
+  if (!id) return null
+
+  const prisma = new PrismaClient()
+  const scramble = await prisma.scramble.findFirst({
+    where: {
+      id: Number(id),
+    },
+  })
+  return scramble
+}
