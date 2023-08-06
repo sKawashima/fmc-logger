@@ -1,5 +1,7 @@
 [![Build CI](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml) ![Last Commit](https://img.shields.io/github/last-commit/sKawashima/fmc-logger/master.svg) ![My FMC Best is 26](https://img.shields.io/badge/My_FMC_Best-26-blue)
 
+[Now making: v0](https://github.com/sKawashima/fmc-logger/milestone/1)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
