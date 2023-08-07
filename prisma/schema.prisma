@@ -73,6 +73,7 @@ model Solution {
   id         Int      @id @default(autoincrement())
   solution   String
   comment    String?
+  score      Int?
   scramble   Scramble @relation(fields: [scrambleId], references: [id])
   scrambleId Int
   user       User     @relation(fields: [userId], references: [id])

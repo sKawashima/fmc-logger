@@ -50,6 +50,7 @@ erDiagram
     Int id "🗝️"
     String solution
     String comment "❓"
+    Int score "❓"
     DateTime createdAt
     }
 
