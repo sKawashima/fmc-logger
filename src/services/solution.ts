@@ -9,6 +9,13 @@ export const makeSolution = async (
   if (!scrambleId) return null
 
   const prisma = new PrismaClient()
+  const scramble = await prisma.scramble.findFirst({
+    where: {
+      id: Number(scrambleId),
+    },
+  })
+  if (!scramble) return { message: 'No scramble' }
+
   const solution = await prisma.solution.create({
     data: {
       scramble: {
