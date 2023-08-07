@@ -35,6 +35,7 @@ export const makeSolution = async (
       },
       solution: userSolution,
       comment,
+      score,
     },
   })
   return solution
@@ -46,7 +47,7 @@ const jadgeScore = (userSolution: string, scramble: string) => {
   cube.move(userSolution)
 
   const isSolved = cube.isSolved()
-  if (!isSolved) return 'DNF'
+  if (!isSolved) return null
 
   const userSolutionCount =
     cubeNotationNormalizer(userSolution).split(' ').length
