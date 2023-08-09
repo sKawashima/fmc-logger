@@ -53,3 +53,21 @@ const jadgeScore = (userSolution: string, scramble: string) => {
     cubeNotationNormalizer(userSolution).split(' ').length
   return userSolutionCount
 }
+
+export const getSolution = async (scrambleId: number, userEmail: string) => {
+  const prisma = new PrismaClient()
+  const solution = await prisma.solution.findFirst({
+    where: {
+      scrambleId: Number(scrambleId),
+      user: {
+        email: userEmail,
+      },
+    },
+  })
+
+  return solution
+}
+
+export const scoreToText = (score: number | null) => {
+  return score ? score : 'DNF'
+}
