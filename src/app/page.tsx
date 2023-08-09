@@ -14,7 +14,6 @@ export default async function Home() {
     <div>
       <p>hello {user ? user?.name : 'world'}</p>
       {user ? <LogoutButton /> : <LoginButton />}
-      <p>Todays Scramble: {todayScramble.scramble}</p>
       <Link href={`/scramble/${todayScramble.id}`}>Todays Scramble</Link>
     </div>
   )
