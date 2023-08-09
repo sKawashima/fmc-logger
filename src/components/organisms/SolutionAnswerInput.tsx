@@ -1,5 +1,6 @@
 'use client'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 type Props = {
@@ -7,12 +8,16 @@ type Props = {
 }
 
 export const SolutionAnswerInput = (props: Props) => {
+  const router = useRouter()
   const [solutionError, setSolutionError] = useState<string | null>(null)
+  const [pushError, setPushError] = useState<string | null>(null)
+
   return (
     <div>
       <p>{solutionError}</p>
       <textarea id="solutionInput" />
       <textarea id="commentInput" />
+      <p>{pushError}</p>
       <button
         onClick={async () => {
           const solutionInputElement = document.getElementById(
@@ -37,7 +42,12 @@ export const SolutionAnswerInput = (props: Props) => {
               comment: commentInputElement.value,
             }),
           })
-          console.log(responce)
+
+          if (responce) {
+            router.refresh()
+          } else {
+            setPushError('送信に失敗しました')
+          }
         }}
       >
         submit
