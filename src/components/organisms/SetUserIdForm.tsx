@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export const SetUserShowIdForm = () => {
+export const UpdateUserShowIdForm = () => {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
 
