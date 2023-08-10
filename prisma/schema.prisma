@@ -49,6 +49,7 @@ model User {
   email         String?    @unique
   emailVerified DateTime?
   image         String?
+  showId        String?    @unique
   accounts      Account[]
   sessions      Session[]
   Solution      Solution[]

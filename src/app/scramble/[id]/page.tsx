@@ -1,8 +1,7 @@
 import { SolutionAnswerInput } from '@/components/organisms/SolutionAnswerInput'
-import { authOptions } from '@/resources/options'
 import { getScramble } from '@/services/scramble'
 import { getSolution, scoreToText } from '@/services/solution'
-import { getServerSession } from 'next-auth'
+import { getUser } from '@/services/user'
 import { notFound } from 'next/navigation'
 
 type Props = {
@@ -13,11 +12,9 @@ export default async function ScramblePage(props: Props) {
   const scramble = await getScramble(props.params.id)
   if (!scramble) notFound()
 
-  const session = await getServerSession(authOptions)
-  const user = session?.user
+  const user = await getUser()
 
-  const solution =
-    user && user.email && (await getSolution(props.params.id, user.email))
+  const solution = user && (await getSolution(props.params.id, user.email))
 
   return (
     <>

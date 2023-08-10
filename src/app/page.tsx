@@ -1,12 +1,10 @@
 import { LoginButton, LogoutButton } from '@/components/molecules/LoginButton'
-import { authOptions } from '@/resources/options'
 import { makeTodaysScramble } from '@/services/scramble'
-import { getServerSession } from 'next-auth'
+import { getUser } from '@/services/user'
 import Link from 'next/link'
 
 export default async function Home() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user
+  const user = await getUser()
 
   const todayScramble = await makeTodaysScramble()
 
