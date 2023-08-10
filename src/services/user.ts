@@ -2,7 +2,6 @@ import { authOptions } from '@/resources/options'
 import { PrismaClient } from '@prisma/client'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
-import { use } from 'react'
 
 export type CustomUser = {
   email?: string
