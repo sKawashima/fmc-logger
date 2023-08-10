@@ -1,3 +1,5 @@
+import { SetUserShowIdForm } from '@/components/organisms/SetUserIdForm'
+
 export default function userSetIdPage() {
-  return <div>this is set id page</div>
+  return <SetUserShowIdForm />
 }
