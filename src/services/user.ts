@@ -8,14 +8,14 @@ export type CustomUser = {
   email?: string
   name?: string
   image?: string
-  idForShow?: string
+  showId?: string
 }
 
 type User = {
   email: string
   name: string
   image?: string
-  idForShow: string
+  showId: string
 }
 
 export const getUser = async () => {
@@ -26,12 +26,12 @@ export const getUser = async () => {
 
   if (!user.email || !user.name) return null
 
-  if (!user.idForShow) redirect('/user/setId')
+  if (!user.showId) redirect('/user/setId')
 
   return user as User
 }
 
-export const updateUserShowId = async (idForShow: string) => {
+export const updateUserShowId = async (showId: string) => {
   const session = await getServerSession(authOptions)
   const user = session?.user as CustomUser
   if (!user) return null
@@ -46,7 +46,7 @@ export const updateUserShowId = async (idForShow: string) => {
       email: user.email,
     },
     data: {
-      idForShow,
+      showId,
     },
   })
 

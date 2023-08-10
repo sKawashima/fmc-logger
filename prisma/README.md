@@ -29,7 +29,7 @@ erDiagram
     String email "❓"
     DateTime emailVerified "❓"
     String image "❓"
-    String idForShow "❓"
+    String showId "❓"
     }
 
 
