@@ -15,5 +15,8 @@ export const POST = async (req: NextRequest) => {
 
   const updatedUser = await updateUserShowId(reqBody.showId)
 
+  if (updatedUser === 'already exists')
+    return NextResponse.json({ message: 'already id exists' }, { status: 409 })
+
   return NextResponse.json({ user: updatedUser })
 }
