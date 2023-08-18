@@ -26,11 +26,10 @@ export const UpdateUserShowIdForm = () => {
             }),
           })
 
-          console.log(responce)
-
           if (responce.status === 200) {
-            setError(null)
-            // router.push('/')
+            router.push('/')
+          } else if (responce.status === 409) {
+            setError('そのIDは既に使われています')
           } else {
             setError('送信に失敗しました')
           }
