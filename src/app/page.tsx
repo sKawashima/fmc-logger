@@ -12,7 +12,14 @@ export default async function Home() {
 
   return (
     <div>
-      <p>hello {user ? user?.name : 'world'}</p>
+      <p>
+        hello{' '}
+        {user ? (
+          <Link href={`/user/${user.showId}`}>{user.name}</Link>
+        ) : (
+          'world'
+        )}
+      </p>
       {user ? <LogoutButton /> : <LoginButton />}
       <Link href={`/scramble/${todayScramble.id}`}>Todays Scramble</Link>
     </div>

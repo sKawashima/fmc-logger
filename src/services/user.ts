@@ -54,3 +54,14 @@ export const updateUserShowId = async (showId: string) => {
 
   return userForUpdate
 }
+
+export const getUserFromShowId = async (showId: string) => {
+  const prisma = new PrismaClient()
+  const user = await prisma.user.findUnique({
+    where: {
+      showId,
+    },
+  })
+
+  return user as User
+}
