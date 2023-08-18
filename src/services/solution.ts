@@ -71,3 +71,20 @@ export const getSolution = async (scrambleId: number, userEmail: string) => {
 export const scoreToText = (score: number | null) => {
   return score ? score : 'DNF'
 }
+
+export const getSolutionsFromUserShowId = async (showId: string) => {
+  const prisma = new PrismaClient()
+  const user = await prisma.user.findUnique({
+    where: {
+      showId,
+    },
+  })
+  if (!user) return null
+
+  const solutions = await prisma.solution.findMany({
+    where: {
+      userId: user.id,
+    },
+  })
+  return solutions
+}
