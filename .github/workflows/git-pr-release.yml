@@ -15,6 +15,6 @@ jobs:
         with:
           base: production
           head: master
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.github_token }}
           labels: release
           assign: true
