@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import '../resources/tailwind.css'
 
 export const metadata: Metadata = {
   title: 'FMC Logger',
