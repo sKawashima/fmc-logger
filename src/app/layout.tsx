@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Providers } from './providers'
+import '../resources/tailwind.css'
 
 export const metadata: Metadata = {
   title: 'FMC Logger',
@@ -11,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body>{children}</body>
+    <html lang="ja" className="light">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }

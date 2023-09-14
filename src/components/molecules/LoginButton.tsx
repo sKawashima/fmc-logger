@@ -1,19 +1,20 @@
 'use client'
 
+import { Button } from '@nextui-org/react'
 import { signIn, signOut } from 'next-auth/react'
 
 export const LoginButton = () => {
   return (
-    <button style={{ marginRight: 10 }} onClick={() => signIn()}>
+    <Button color="primary" onClick={() => signIn()}>
       Sign in
-    </button>
+    </Button>
   )
 }
 
 export const LogoutButton = () => {
   return (
-    <button style={{ marginRight: 10 }} onClick={() => signOut()}>
+    <Button style={{ marginRight: 10 }} onClick={() => signOut()}>
       Sign Out
-    </button>
+    </Button>
   )
 }
