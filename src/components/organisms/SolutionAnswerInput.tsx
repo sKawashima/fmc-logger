@@ -15,10 +15,11 @@ export const SolutionAnswerInput = (props: Props) => {
   return (
     <div>
       <p>{solutionError}</p>
-      <textarea id="solutionInput" />
-      <textarea id="commentInput" />
+      <textarea id="solutionInput" className="textarea" />
+      <textarea id="commentInput" className="textarea" />
       <p>{pushError}</p>
       <button
+        className="btn btn-primary"
         onClick={async () => {
           const solutionInputElement = document.getElementById(
             'solutionInput',
