@@ -1,5 +1,6 @@
 'use client'
 
+import { Button, Pane, TextInputField } from 'evergreen-ui'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -8,11 +9,12 @@ export const UpdateUserShowIdForm = () => {
   const [error, setError] = useState<string | null>(null)
 
   return (
-    <>
-      <label htmlFor="userIdForShow">UserId</label>
-      <input id="userIdForShow" />
+    <Pane>
+      <TextInputField id="userIdForShow" label="UserId" />
       <p>{error}</p>
-      <button
+      <Button
+        appearance="primary"
+        // TODO: Refactor Method
         onClick={async () => {
           const userIdForShowInputElement = document.getElementById(
             'userIdForShow',
@@ -36,7 +38,7 @@ export const UpdateUserShowIdForm = () => {
         }}
       >
         submit
-      </button>
-    </>
+      </Button>
+    </Pane>
   )
 }
