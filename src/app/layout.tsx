@@ -1,3 +1,4 @@
+import { GlobalLayout } from '@/components/templates/GlobalLayout'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -5,14 +6,16 @@ export const metadata: Metadata = {
   description: 'FMCerのための記録管理ツール',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <GlobalLayout>{children}</GlobalLayout>
+      </body>
     </html>
   )
 }
