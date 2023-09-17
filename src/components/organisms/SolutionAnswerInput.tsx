@@ -1,5 +1,6 @@
 'use client'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
+import { Alert, Button, Pane, Textarea, TextareaField } from 'evergreen-ui'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -13,12 +14,17 @@ export const SolutionAnswerInput = (props: Props) => {
   const [pushError, setPushError] = useState<string | null>(null)
 
   return (
-    <div>
-      <p>{solutionError}</p>
-      <textarea id="solutionInput" />
-      <textarea id="commentInput" />
-      <p>{pushError}</p>
-      <button
+    <Pane>
+      {solutionError && <Alert intent="danger">{solutionError}</Alert>}
+      <TextareaField
+        id="solutionInput"
+        placeholder="Solution"
+        validationMessage={solutionError}
+        isInvalid={Boolean(solutionError)}
+      />
+      <Textarea id="commentInput" placeholder="Comment" />
+      {pushError && <Alert intent="danger">{pushError}</Alert>}
+      <Button
         onClick={async () => {
           const solutionInputElement = document.getElementById(
             'solutionInput',
@@ -51,7 +57,7 @@ export const SolutionAnswerInput = (props: Props) => {
         }}
       >
         submit
-      </button>
-    </div>
+      </Button>
+    </Pane>
   )
 }
