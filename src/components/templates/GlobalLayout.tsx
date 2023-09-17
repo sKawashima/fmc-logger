@@ -1,6 +1,7 @@
 import { getUser } from '@/services/user'
 import { GlobalHeader } from '../organisms/GlobalHeader'
 import { redirect } from 'next/navigation'
+import { GlobalFooter } from '../organisms/GlobalFooter'
 
 type Props = {
   children: React.ReactNode
@@ -14,6 +15,7 @@ export const GlobalLayout = async (porps: Props) => {
     <>
       <GlobalHeader isLogin={Boolean(user)} />
       {porps.children}
+      <GlobalFooter />
     </>
   )
 }
