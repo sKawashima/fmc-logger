@@ -26,6 +26,7 @@ export const SolutionAnswerInput = (props: Props) => {
       {pushError && <Alert intent="danger">{pushError}</Alert>}
       <Button
         onClick={async () => {
+          // TODO: Refactor Method
           const solutionInputElement = document.getElementById(
             'solutionInput',
           ) as HTMLTextAreaElement
