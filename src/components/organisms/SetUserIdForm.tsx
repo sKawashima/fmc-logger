@@ -10,8 +10,12 @@ export const UpdateUserShowIdForm = () => {
 
   return (
     <Pane>
-      <TextInputField id="userIdForShow" label="UserId" />
-      <p>{error}</p>
+      <TextInputField
+        id="userIdForShow"
+        label="UserId"
+        isInvalid={Boolean(error)}
+        validationMessage={error}
+      />
       <Button
         appearance="primary"
         // TODO: Refactor Method
