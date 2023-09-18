@@ -8,7 +8,7 @@ type Props = {
   scrambleId: number
 }
 
-export const SolutionAnswerInput = (props: Props) => {
+export const FormInputSolutionAnswer = (props: Props) => {
   const router = useRouter()
   const [solutionError, setSolutionError] = useState<string | null>(null)
   const [pushError, setPushError] = useState<string | null>(null)
