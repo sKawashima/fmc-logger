@@ -2,6 +2,7 @@ import { getUser } from '@/services/user'
 import { GlobalHeader } from '../organisms/GlobalHeader'
 import { redirect } from 'next/navigation'
 import { GlobalFooter } from '../organisms/GlobalFooter'
+import { GlobalBodyWrapper } from '../organisms/GlobalBodyWrapper'
 
 type Props = {
   children: React.ReactNode
@@ -14,7 +15,7 @@ export const GlobalLayout = async (porps: Props) => {
   return (
     <>
       <GlobalHeader user={user} />
-      {porps.children}
+      <GlobalBodyWrapper>{porps.children}</GlobalBodyWrapper>
       <GlobalFooter />
     </>
   )
