@@ -16,6 +16,8 @@ export const UserAvatar = (props: Props) => {
   return (
     <Popover
       position={Position.BOTTOM_RIGHT}
+      shouldCloseOnExternalClick
+      shouldCloseOnEscapePress
       content={({ close }) => (
         <Menu>
           <Menu.Group>
