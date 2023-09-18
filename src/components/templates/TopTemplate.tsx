@@ -1,10 +1,12 @@
-export const TopTemplate = () => {
+import { makeTodaysScramble } from '@/services/scramble'
+import { TopTodayScrambleSection } from '../organisms/TopTodayScrambleSection'
+
+export const TopTemplate = async () => {
+  const todayScramble = await makeTodaysScramble()
+
   return (
-    <div>
-      <main>
-        <h1>TopTemplate</h1>
-      </main>
-      {/* <GlobalFooter /> */}
-    </div>
+    <>
+      <TopTodayScrambleSection linkUrl={`/scramble/${todayScramble.id}`} />
+    </>
   )
 }
