@@ -4,7 +4,7 @@ import { Button, Pane, TextInputField } from 'evergreen-ui'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export const UpdateUserShowIdForm = () => {
+export const FormUpdateUserShowId = () => {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
 

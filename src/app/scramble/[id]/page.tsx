@@ -1,4 +1,4 @@
-import { SolutionAnswerInput } from '@/components/organisms/SolutionAnswerInput'
+import { FormInputSolutionAnswer } from '@/components/organisms/FormInputSolutionAnswer'
 import { getScramble } from '@/services/scramble'
 import { getSolution, scoreToText } from '@/services/solution'
 import { getUser } from '@/services/user'
@@ -27,7 +27,7 @@ export default async function ScramblePage(props: Props) {
           <p>Your Comment: {solution.comment}</p>
         </>
       ) : (
-        <SolutionAnswerInput scrambleId={props.params.id} />
+        <FormInputSolutionAnswer scrambleId={props.params.id} />
       )}
     </>
   )
