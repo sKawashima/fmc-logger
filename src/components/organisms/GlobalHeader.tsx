@@ -16,24 +16,27 @@ export const GlobalHeader = (props: Props) => {
 
   return (
     <header>
-      <Pane
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        borderBottom="default"
-        paddingX={majorScale(2)}
-        paddingY={majorScale(1)}
-      >
-        <Heading
-          size={600}
-          cursor="pointer"
-          onClick={() => {
-            router.push('/')
-          }}
+      <Pane borderBottom="default">
+        <Pane
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          maxWidth={majorScale(160)}
+          marginX="auto"
+          paddingX={majorScale(2)}
+          paddingY={majorScale(1)}
         >
-          FMC Logger
-        </Heading>
-        {isLogin ? <UserAvatar user={props.user} /> : <LoginButton />}
+          <Heading
+            size={600}
+            cursor="pointer"
+            onClick={() => {
+              router.push('/')
+            }}
+          >
+            FMC Logger
+          </Heading>
+          {isLogin ? <UserAvatar user={props.user} /> : <LoginButton />}
+        </Pane>
       </Pane>
     </header>
   )

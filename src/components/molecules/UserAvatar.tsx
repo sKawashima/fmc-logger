@@ -1,9 +1,17 @@
 'use client'
 
 import { User } from '@/services/user'
-import { Avatar, Menu, Popover, Position } from 'evergreen-ui'
+import {
+  Avatar,
+  Button,
+  Menu,
+  Pane,
+  Popover,
+  Position,
+  Text,
+  majorScale,
+} from 'evergreen-ui'
 import { signOut } from 'next-auth/react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 type Props = {
@@ -47,12 +55,25 @@ export const UserAvatar = (props: Props) => {
         </Menu>
       )}
     >
-      <Avatar
-        name={props.user?.name}
-        src={props.user?.image}
-        size={32}
-        cursor="pointer"
-      />
+      <Button appearance="minimal" size="large">
+        <Avatar
+          name={props.user?.name}
+          src={props.user?.image}
+          size={32}
+          cursor="pointer"
+        />
+        <Pane
+          display="flex"
+          flexDirection="column"
+          alignItems="flex-start"
+          marginLeft={majorScale(1)}
+        >
+          <Text>{props.user?.name}</Text>
+          <Text color="muted" size={300}>
+            @{props.user?.showId}
+          </Text>
+        </Pane>
+      </Button>
     </Popover>
   )
 }
