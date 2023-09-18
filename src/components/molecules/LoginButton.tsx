@@ -10,8 +10,3 @@ export const LoginButton = () => {
     </Button>
   )
 }
-
-// TODO: Remove this component
-export const LogoutButton = () => {
-  return <Button onClick={() => signOut()}>Sign Out</Button>
-}
