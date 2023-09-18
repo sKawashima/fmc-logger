@@ -1,13 +1,19 @@
 'use client'
 
 import { Heading, Pane, majorScale } from 'evergreen-ui'
-import { LoginButton, LogoutButton } from '../molecules/LoginButton'
+import { LoginButton } from '../molecules/LoginButton'
+import { UserAvatar } from '../molecules/UserAvatar'
+import { User } from '@/services/user'
+import { useRouter } from 'next/navigation'
 
 type Props = {
-  isLogin?: boolean
+  user: User | null
 }
 
 export const GlobalHeader = (props: Props) => {
+  const isLogin = Boolean(props.user)
+  const router = useRouter()
+
   return (
     <header>
       <Pane
@@ -18,8 +24,16 @@ export const GlobalHeader = (props: Props) => {
         paddingX={majorScale(2)}
         paddingY={majorScale(1)}
       >
-        <Heading size={600}>FMC Logger</Heading>
-        {props.isLogin ? <LogoutButton /> : <LoginButton />}
+        <Heading
+          size={600}
+          cursor="pointer"
+          onClick={() => {
+            router.push('/')
+          }}
+        >
+          FMC Logger
+        </Heading>
+        {isLogin ? <UserAvatar user={props.user} /> : <LoginButton />}
       </Pane>
     </header>
   )

@@ -13,7 +13,7 @@ export const GlobalLayout = async (porps: Props) => {
 
   return (
     <>
-      <GlobalHeader isLogin={Boolean(user)} />
+      <GlobalHeader user={user} />
       {porps.children}
       <GlobalFooter />
     </>

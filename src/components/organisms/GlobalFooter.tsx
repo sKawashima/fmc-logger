@@ -12,9 +12,13 @@ export const GlobalFooter = () => {
         </Paragraph>
         <Paragraph textAlign="center">
           Developed by{' '}
-          <Link href="https://github.com/sKawashima/fmc-logger">
-            <LinkText>sKawashima</LinkText>
-          </Link>
+          <LinkText
+            href="https://github.com/sKawashima/fmc-logger"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            sKawashima
+          </LinkText>
         </Paragraph>
       </Pane>
     </footer>
