@@ -1,19 +1,12 @@
 'use client'
 
+import { Button } from 'evergreen-ui'
 import { signIn, signOut } from 'next-auth/react'
 
 export const LoginButton = () => {
   return (
-    <button style={{ marginRight: 10 }} onClick={() => signIn()}>
+    <Button appearance="primary" onClick={() => signIn()} size="large">
       Sign in
-    </button>
-  )
-}
-
-export const LogoutButton = () => {
-  return (
-    <button style={{ marginRight: 10 }} onClick={() => signOut()}>
-      Sign Out
-    </button>
+    </Button>
   )
 }

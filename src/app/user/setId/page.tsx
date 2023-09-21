@@ -1,5 +1,5 @@
-import { UpdateUserShowIdForm } from '@/components/organisms/SetUserIdForm'
+import { FormUpdateUserShowId } from '@/components/organisms/FormSetUserId'
 
 export default function updateUserShowIdPage() {
-  return <UpdateUserShowIdForm />
+  return <FormUpdateUserShowId />
 }
