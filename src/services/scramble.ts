@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client'
 import dayjs from 'dayjs'
 
 const threeByThree = new Scrambo().type('333')
+
 const createFmcScrambleToNormalScramble = () => {
   let scramble = threeByThree.get(1)[0]
   while (
