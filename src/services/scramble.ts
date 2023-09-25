@@ -2,6 +2,7 @@ import Scrambo from 'scrambo'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 import { PrismaClient } from '@prisma/client'
 import dayjs from 'dayjs'
+
 const threeByThree = new Scrambo().type('333')
 const createFmcScrambleToNormalScramble = () => {
   let scramble = threeByThree.get(1)[0]
@@ -13,6 +14,7 @@ const createFmcScrambleToNormalScramble = () => {
   }
   return `R' U' F ${scramble} R' U' F`
 }
+
 export const makeTodaysScramble = async () => {
   const prisma = new PrismaClient()
   const todayScramble =
@@ -31,6 +33,7 @@ export const makeTodaysScramble = async () => {
     }))
   return todayScramble
 }
+
 export const getScramble = async (id: number) => {
   if (!id) return null
   const prisma = new PrismaClient()

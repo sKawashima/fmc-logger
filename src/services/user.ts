@@ -2,18 +2,21 @@ import { authOptions } from '@/resources/options'
 import { PrismaClient } from '@prisma/client'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
+
 type CustomUser = {
   email?: string
   name?: string
   image?: string
   showId?: string
 }
+
 export type User = {
   email: string
   name: string
   image?: string
   showId: string
 }
+
 export const getUser = async () => {
   const prisma = new PrismaClient()
   const session = await getServerSession(authOptions)
@@ -25,6 +28,7 @@ export const getUser = async () => {
   })
   return user as User
 }
+
 export const updateUserShowId = async (showId: string) => {
   const session = await getServerSession(authOptions)
   const user = session?.user as CustomUser
@@ -43,6 +47,7 @@ export const updateUserShowId = async (showId: string) => {
   if (!userForUpdate) return 'already exists'
   return userForUpdate
 }
+
 export const getUserFromShowId = async (showId: string) => {
   const prisma = new PrismaClient()
   const user = await prisma.user.findUnique({
