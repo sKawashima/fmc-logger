@@ -1,7 +1,6 @@
 'use client'
 
 import { Link as LinkText, Pane, Paragraph, majorScale } from 'evergreen-ui'
-import Link from 'next/link'
 
 export const GlobalFooter = () => {
   return (

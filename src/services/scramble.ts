@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 
 const threeByThree = new Scrambo().type('333')
 
-export const createFmcScrambleToNormalScramble = () => {
+const createFmcScrambleToNormalScramble = () => {
   let scramble = threeByThree.get(1)[0]
   while (
     `R' U' F ${scramble} R' U' F`.length !==
@@ -13,7 +13,6 @@ export const createFmcScrambleToNormalScramble = () => {
   ) {
     scramble = threeByThree.get(1)[0]
   }
-
   return `R' U' F ${scramble} R' U' F`
 }
 
@@ -38,7 +37,6 @@ export const makeTodaysScramble = async () => {
 
 export const getScramble = async (id: number) => {
   if (!id) return null
-
   const prisma = new PrismaClient()
   const scramble = await prisma.scramble.findFirst({
     where: {
