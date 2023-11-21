@@ -30,7 +30,7 @@
     "eslint-config-next": "13.4.12",
     "evergreen-ui": "^7.1.9",
     "next": "13.4.12",
-    "next-auth": "^4.22.3",
+    "next-auth": "^4.24.5",
     "prisma": "^5.1.0",
     "prisma-erd-generator": "^1.8.0",
     "react": "18.2.0",
