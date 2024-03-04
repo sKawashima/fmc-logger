@@ -10,7 +10,7 @@ dependencies:
     version: 1.0.2(@prisma/client@5.10.2)
   '@prisma/client':
     specifier: ^5.10.2
-    version: 5.10.2(prisma@5.3.0)
+    version: 5.10.2(prisma@5.10.2)
   '@types/node':
     specifier: 20.11.19
     version: 20.11.19
@@ -45,8 +45,8 @@ dependencies:
     specifier: ^4.24.6
     version: 4.24.6(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
   prisma:
-    specifier: ^5.1.0
-    version: 5.3.0
+    specifier: ^5.10.2
+    version: 5.10.2
   prisma-erd-generator:
     specifier: ^1.11.2
     version: 1.11.2(@prisma/client@5.10.2)(typescript@5.3.3)
@@ -115,7 +115,7 @@ packages:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5'
     dependencies:
       '@auth/core': 0.13.0
-      '@prisma/client': 5.10.2(prisma@5.3.0)
+      '@prisma/client': 5.10.2(prisma@5.10.2)
     transitivePeerDependencies:
       - nodemailer
     dev: false
@@ -369,7 +369,7 @@ packages:
     dev: false
     optional: true
 
-  /@prisma/client@5.10.2(prisma@5.3.0):
+  /@prisma/client@5.10.2(prisma@5.10.2):
     resolution: {integrity: sha512-ef49hzB2yJZCvM5gFHMxSFL9KYrIP9udpT5rYo0CsHD4P9IKj473MbhU1gjKKftiwWBTIyrt9jukprzZXazyag==}
     engines: {node: '>=16.13'}
     requiresBuild: true
@@ -379,7 +379,11 @@ packages:
       prisma:
         optional: true
     dependencies:
-      prisma: 5.3.0
+      prisma: 5.10.2
+    dev: false
+
+  /@prisma/debug@5.10.2:
+    resolution: {integrity: sha512-bkBOmH9dpEBbMKFJj8V+Zp8IZHIBjy3fSyhLhxj4FmKGb/UBSt9doyfA6k1UeUREsMJft7xgPYBbHSOYBr8XCA==}
     dev: false
 
   /@prisma/debug@5.3.0:
@@ -392,9 +396,26 @@ packages:
       - supports-color
     dev: false
 
-  /@prisma/engines@5.3.0:
-    resolution: {integrity: sha512-3U3u/pa+QYfrV2z2rU6cBmzOZYPVEh1cXvg35PbaYFBQipFep54tp+mD9KJhlouT57pMKPERgjcPFR+UZ/BWjg==}
+  /@prisma/engines-version@5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9:
+    resolution: {integrity: sha512-uCy/++3Jx/O3ufM+qv2H1L4tOemTNqcP/gyEVOlZqTpBvYJUe0tWtW0y3o2Ueq04mll4aM5X3f6ugQftOSLdFQ==}
+    dev: false
+
+  /@prisma/engines@5.10.2:
+    resolution: {integrity: sha512-HkSJvix6PW8YqEEt3zHfCYYJY69CXsNdhU+wna+4Y7EZ+AwzeupMnUThmvaDA7uqswiHkgm5/SZ6/4CStjaGmw==}
     requiresBuild: true
+    dependencies:
+      '@prisma/debug': 5.10.2
+      '@prisma/engines-version': 5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9
+      '@prisma/fetch-engine': 5.10.2
+      '@prisma/get-platform': 5.10.2
+    dev: false
+
+  /@prisma/fetch-engine@5.10.2:
+    resolution: {integrity: sha512-dSmXcqSt6DpTmMaLQ9K8ZKzVAMH3qwGCmYEZr/uVnzVhxRJ1EbT/w2MMwIdBNq1zT69Rvh0h75WMIi0mrIw7Hg==}
+    dependencies:
+      '@prisma/debug': 5.10.2
+      '@prisma/engines-version': 5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9
+      '@prisma/get-platform': 5.10.2
     dev: false
 
   /@prisma/generator-helper@5.3.0:
@@ -406,6 +427,12 @@ packages:
       kleur: 4.1.5
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@prisma/get-platform@5.10.2:
+    resolution: {integrity: sha512-nqXP6vHiY2PIsebBAuDeWiUYg8h8mfjBckHh6Jezuwej0QJNnjDiOq30uesmg+JXxGk99nqyG3B7wpcOODzXvg==}
+    dependencies:
+      '@prisma/debug': 5.10.2
     dev: false
 
   /@puppeteer/browsers@0.5.0(typescript@5.3.3):
@@ -2951,7 +2978,7 @@ packages:
       '@prisma/client': ^4.0.0 || ^5.0.0
     dependencies:
       '@mermaid-js/mermaid-cli': 10.8.0(typescript@5.3.3)
-      '@prisma/client': 5.10.2(prisma@5.3.0)
+      '@prisma/client': 5.10.2(prisma@5.10.2)
       '@prisma/generator-helper': 5.3.0
       dotenv: 16.3.1
     transitivePeerDependencies:
@@ -2962,13 +2989,13 @@ packages:
       - utf-8-validate
     dev: false
 
-  /prisma@5.3.0:
-    resolution: {integrity: sha512-eLUR2gyKk8iRLAfy1H3Jel4SZQmjauTPTYX4UFFmwrMTrPnQzipspt48s6e45H5PKYq9zT5MQ9qWbkq9Ru4EAg==}
+  /prisma@5.10.2:
+    resolution: {integrity: sha512-hqb/JMz9/kymRE25pMWCxkdyhbnIWrq+h7S6WysJpdnCvhstbJSNP/S6mScEcqiB8Qv2F+0R3yG+osRaWqZacQ==}
     engines: {node: '>=16.13'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 5.3.0
+      '@prisma/engines': 5.10.2
     dev: false
 
   /progress@2.0.3:
