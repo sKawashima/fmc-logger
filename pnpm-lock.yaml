@@ -71,8 +71,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0(typescript@5.3.3)
   '@types/scrambo':
-    specifier: ^0.3.0
-    version: 0.3.0
+    specifier: ^0.3.3
+    version: 0.3.3
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -553,8 +553,8 @@ packages:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: false
 
-  /@types/scrambo@0.3.0:
-    resolution: {integrity: sha512-MKOTltglyMmNIhODcTtiV2CbuL/ofciRKlsiaBNbcGEVcl++PFocYjksDgc0aH4x5MfP5wPGAL0oL0Ad9zB1qw==}
+  /@types/scrambo@0.3.3:
+    resolution: {integrity: sha512-wNlRGvmrGUb5GTCwOW0dhJf4WpSIdvl/rqHHcHRaEMfAkAYW6KVJw9Ba3nPzDaow+ejw1gj7kQHYZS/irhUsrw==}
     dev: true
 
   /@types/yauzl@2.10.0:
