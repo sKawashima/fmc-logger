@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@auth/prisma-adapter':
-    specifier: ^1.5.2
-    version: 1.5.2(@prisma/client@5.11.0)
+    specifier: ^1.6.0
+    version: 1.6.0(@prisma/client@5.12.1)
   '@prisma/client':
-    specifier: ^5.11.0
-    version: 5.11.0(prisma@5.11.0)
+    specifier: ^5.12.1
+    version: 5.12.1(prisma@5.12.1)
   '@types/node':
     specifier: 20.12.2
     version: 20.12.2
@@ -18,8 +18,8 @@ dependencies:
     specifier: 18.2.73
     version: 18.2.73
   '@types/react-dom':
-    specifier: 18.2.23
-    version: 18.2.23
+    specifier: 18.2.24
+    version: 18.2.24
   cube-notation-normalizer:
     specifier: ^1.0.0
     version: 1.0.0
@@ -34,7 +34,7 @@ dependencies:
     version: 8.57.0
   eslint-config-next:
     specifier: 14.1.4
-    version: 14.1.4(eslint@8.57.0)(typescript@5.4.2)
+    version: 14.1.4(eslint@8.57.0)(typescript@5.4.4)
   evergreen-ui:
     specifier: ^7.1.9
     version: 7.1.9(react-dom@18.2.0)(react-is@16.13.1)(react@18.2.0)
@@ -45,11 +45,11 @@ dependencies:
     specifier: ^4.24.7
     version: 4.24.7(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)
   prisma:
-    specifier: ^5.11.0
-    version: 5.11.0
+    specifier: ^5.12.1
+    version: 5.12.1
   prisma-erd-generator:
     specifier: ^1.11.2
-    version: 1.11.2(@prisma/client@5.11.0)(typescript@5.4.2)
+    version: 1.11.2(@prisma/client@5.12.1)(typescript@5.4.4)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -63,13 +63,13 @@ dependencies:
     specifier: ^0.3.0
     version: 0.3.0
   typescript:
-    specifier: 5.4.2
-    version: 5.4.2
+    specifier: 5.4.4
+    version: 5.4.4
 
 devDependencies:
   '@line/ts-remove-unused':
     specifier: ^0.2.0
-    version: 0.2.0(typescript@5.4.2)
+    version: 0.2.0(typescript@5.4.4)
   '@types/scrambo':
     specifier: ^0.3.3
     version: 0.3.3
@@ -93,8 +93,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /@auth/core@0.28.2:
-    resolution: {integrity: sha512-Rlvu6yKa4bKbhQESMaEm6jHOY5ncIrsrQkC8tcwVQmf+cBLk7ReI9DIJS2O/WkIDoOwvM9PHiXTi5b+b/eyXxw==}
+  /@auth/core@0.29.0:
+    resolution: {integrity: sha512-MdfEjU6WRjUnPG1+XeBWrTIlAsLZU6V0imCIqVDDDPxLI6UZWldXVqAA2EsDazGofV78jqiCLHaN85mJITDqdg==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -116,13 +116,13 @@ packages:
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/prisma-adapter@1.5.2(@prisma/client@5.11.0):
-    resolution: {integrity: sha512-yP331ZtBvzrtKSqsJ7/LeojJVimiSvJ7CKeA4HfvAGtHhKvu2m5IVe8mnWa6yX1xWK8I5VyZMMlWPcaDtNKlwA==}
+  /@auth/prisma-adapter@1.6.0(@prisma/client@5.12.1):
+    resolution: {integrity: sha512-PQU8/Oi5gfjzb0MkhMGVX0Dg877phPzsQdK54+C7ubukCeZPjyvuSAx1vVtWEYVWp2oQvjgG/C6QiDoeC7S10A==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5'
     dependencies:
-      '@auth/core': 0.28.2
-      '@prisma/client': 5.11.0(prisma@5.11.0)
+      '@auth/core': 0.29.0
+      '@prisma/client': 5.12.1(prisma@5.12.1)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -231,7 +231,7 @@ packages:
       wrap-ansi-cjs: /wrap-ansi@7.0.0
     dev: false
 
-  /@line/ts-remove-unused@0.2.0(typescript@5.4.2):
+  /@line/ts-remove-unused@0.2.0(typescript@5.4.4):
     resolution: {integrity: sha512-5eAbFhussP8UCYlci27AGQdjv/3Lf+GDfKlso3CmDck4/McaPPWPuDfvnN77hsVObht5fPjfp6+PuLsoDpC2aw==}
     hasBin: true
     peerDependencies:
@@ -239,17 +239,17 @@ packages:
     dependencies:
       cac: 6.7.14
       ts-morph: 17.0.1
-      typescript: 5.4.2
+      typescript: 5.4.4
     dev: true
 
-  /@mermaid-js/mermaid-cli@10.8.0(typescript@5.4.2):
+  /@mermaid-js/mermaid-cli@10.8.0(typescript@5.4.4):
     resolution: {integrity: sha512-xZsGR88RsP72SAXyvjU23HzsKHsq6b7/kbnmQrEuIcPrJGPOckFiP9nzHvPh3Z04MjvpDJVjtbIspt2ZQwUzzA==}
     engines: {node: ^14.13 || >=16.0}
     hasBin: true
     dependencies:
       chalk: 5.3.0
       commander: 10.0.1
-      puppeteer: 19.11.1(typescript@5.4.2)
+      puppeteer: 19.11.1(typescript@5.4.4)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -378,8 +378,8 @@ packages:
     dev: false
     optional: true
 
-  /@prisma/client@5.11.0(prisma@5.11.0):
-    resolution: {integrity: sha512-SWshvS5FDXvgJKM/a0y9nDC1rqd7KG0Q6ZVzd+U7ZXK5soe73DJxJJgbNBt2GNXOa+ysWB4suTpdK5zfFPhwiw==}
+  /@prisma/client@5.12.1(prisma@5.12.1):
+    resolution: {integrity: sha512-6/JnizEdlSBxDIdiLbrBdMW5NqDxOmhXAJaNXiPpgzAPr/nLZResT6MMpbOHLo5yAbQ1Vv5UU8PTPRzb0WIxdA==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -388,11 +388,11 @@ packages:
       prisma:
         optional: true
     dependencies:
-      prisma: 5.11.0
+      prisma: 5.12.1
     dev: false
 
-  /@prisma/debug@5.11.0:
-    resolution: {integrity: sha512-N6yYr3AbQqaiUg+OgjkdPp3KPW1vMTAgtKX6+BiB/qB2i1TjLYCrweKcUjzOoRM5BriA4idrkTej9A9QqTfl3A==}
+  /@prisma/debug@5.12.1:
+    resolution: {integrity: sha512-kd/wNsR0klrv79o1ITsbWxYyh4QWuBidvxsXSParPsYSu0ircUmNk3q4ojsgNc3/81b0ozg76iastOG43tbf8A==}
     dev: false
 
   /@prisma/debug@5.3.0:
@@ -405,26 +405,26 @@ packages:
       - supports-color
     dev: false
 
-  /@prisma/engines-version@5.11.0-15.efd2449663b3d73d637ea1fd226bafbcf45b3102:
-    resolution: {integrity: sha512-WXCuyoymvrS4zLz4wQagSsc3/nE6CHy8znyiMv8RKazKymOMd5o9FP5RGwGHAtgoxd+aB/BWqxuP/Ckfu7/3MA==}
+  /@prisma/engines-version@5.12.0-21.473ed3124229e22d881cb7addf559799debae1ab:
+    resolution: {integrity: sha512-6yvO8s80Tym61aB4QNtYZfWVmE3pwqe807jEtzm8C5VDe7nw8O1FGX3TXUaXmWV0fQTIAfRbeL2Gwrndabp/0g==}
     dev: false
 
-  /@prisma/engines@5.11.0:
-    resolution: {integrity: sha512-gbrpQoBTYWXDRqD+iTYMirDlF9MMlQdxskQXbhARhG6A/uFQjB7DZMYocMQLoiZXO/IskfDOZpPoZE8TBQKtEw==}
+  /@prisma/engines@5.12.1:
+    resolution: {integrity: sha512-HQDdglLw2bZR/TXD2Y+YfDMvi5Q8H+acbswqOsWyq9pPjBLYJ6gzM+ptlTU/AV6tl0XSZLU1/7F4qaWa8bqpJA==}
     requiresBuild: true
     dependencies:
-      '@prisma/debug': 5.11.0
-      '@prisma/engines-version': 5.11.0-15.efd2449663b3d73d637ea1fd226bafbcf45b3102
-      '@prisma/fetch-engine': 5.11.0
-      '@prisma/get-platform': 5.11.0
+      '@prisma/debug': 5.12.1
+      '@prisma/engines-version': 5.12.0-21.473ed3124229e22d881cb7addf559799debae1ab
+      '@prisma/fetch-engine': 5.12.1
+      '@prisma/get-platform': 5.12.1
     dev: false
 
-  /@prisma/fetch-engine@5.11.0:
-    resolution: {integrity: sha512-994viazmHTJ1ymzvWugXod7dZ42T2ROeFuH6zHPcUfp/69+6cl5r9u3NFb6bW8lLdNjwLYEVPeu3hWzxpZeC0w==}
+  /@prisma/fetch-engine@5.12.1:
+    resolution: {integrity: sha512-qSs3KcX1HKcea1A+hlJVK/ljj0PNIUHDxAayGMvgJBqmaN32P9tCidlKz1EGv6WoRFICYnk3Dd/YFLBwnFIozA==}
     dependencies:
-      '@prisma/debug': 5.11.0
-      '@prisma/engines-version': 5.11.0-15.efd2449663b3d73d637ea1fd226bafbcf45b3102
-      '@prisma/get-platform': 5.11.0
+      '@prisma/debug': 5.12.1
+      '@prisma/engines-version': 5.12.0-21.473ed3124229e22d881cb7addf559799debae1ab
+      '@prisma/get-platform': 5.12.1
     dev: false
 
   /@prisma/generator-helper@5.3.0:
@@ -438,13 +438,13 @@ packages:
       - supports-color
     dev: false
 
-  /@prisma/get-platform@5.11.0:
-    resolution: {integrity: sha512-rxtHpMLxNTHxqWuGOLzR2QOyQi79rK1u1XYAVLZxDGTLz/A+uoDnjz9veBFlicrpWjwuieM4N6jcnjj/DDoidw==}
+  /@prisma/get-platform@5.12.1:
+    resolution: {integrity: sha512-pgIR+pSvhYHiUcqXVEZS31NrFOTENC9yFUdEAcx7cdQBoZPmHVjtjN4Ss6NzVDMYPrKJJ51U14EhEoeuBlMioQ==}
     dependencies:
-      '@prisma/debug': 5.11.0
+      '@prisma/debug': 5.12.1
     dev: false
 
-  /@puppeteer/browsers@0.5.0(typescript@5.4.2):
+  /@puppeteer/browsers@0.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-Uw6oB7VvmPRLE4iKsjuOh8zgDabhNX67dzo8U/BB0f9527qx+4eeUs+korU98OhG5C4ubg7ufBgVi63XYwS6TQ==}
     engines: {node: '>=14.1.0'}
     hasBin: true
@@ -460,7 +460,7 @@ packages:
       progress: 2.0.3
       proxy-from-env: 1.1.0
       tar-fs: 2.1.1
-      typescript: 5.4.2
+      typescript: 5.4.4
       unbzip2-stream: 1.4.3
       yargs: 17.7.1
     transitivePeerDependencies:
@@ -529,8 +529,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: false
 
-  /@types/react-dom@18.2.23:
-    resolution: {integrity: sha512-ZQ71wgGOTmDYpnav2knkjr3qXdAFu0vsk8Ci5w3pGAIdj7/kKAyn+VsQDhXsmzzzepAiI9leWMmubXz690AI/A==}
+  /@types/react-dom@18.2.24:
+    resolution: {integrity: sha512-cN6upcKd8zkGy4HU9F1+/s98Hrp6D4MOcippK4PoE8OZRngohHZpbJn1GsaDLz87MqvHNoT13nHvNqM9ocRHZg==}
     dependencies:
       '@types/react': 18.2.73
     dev: false
@@ -560,7 +560,7 @@ packages:
     dev: false
     optional: true
 
-  /@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.4.2):
+  /@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.4.4):
     resolution: {integrity: sha512-VlJEV0fOQ7BExOsHYAGrgbEiZoi8D+Bl2+f6V2RrXerRSylnp+ZBHmPvaIa8cz0Ajx7WO7Z5RqfgYg7ED1nRhA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -572,10 +572,10 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
-      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.4.2)
+      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.4.4)
       debug: 4.3.4
       eslint: 8.57.0
-      typescript: 5.4.2
+      typescript: 5.4.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -593,7 +593,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-  /@typescript-eslint/typescript-estree@5.62.0(typescript@5.4.2):
+  /@typescript-eslint/typescript-estree@5.62.0(typescript@5.4.4):
     resolution: {integrity: sha512-CmcQ6uY7b9y694lKdRB8FEel7JbU/40iSAPomu++SjLMntB+2Leay2LO6i8VnJk58MtE9/nQSFIH6jpyRWyYzA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -608,8 +608,8 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.5.4
-      tsutils: 3.21.0(typescript@5.4.2)
-      typescript: 5.4.2
+      tsutils: 3.21.0(typescript@5.4.4)
+      typescript: 5.4.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1293,7 +1293,7 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /eslint-config-next@14.1.4(eslint@8.57.0)(typescript@5.4.2):
+  /eslint-config-next@14.1.4(eslint@8.57.0)(typescript@5.4.4):
     resolution: {integrity: sha512-cihIahbhYAWwXJwZkAaRPpUi5t9aOi/HdfWXOjZeUOqNWXHD8X22kd1KG58Dc3MVaRx3HoR/oMGk2ltcrqDn8g==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -1304,7 +1304,7 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 14.1.4
       '@rushstack/eslint-patch': 1.3.3
-      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.4)
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1)(eslint@8.57.0)
@@ -1312,7 +1312,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.57.0)
       eslint-plugin-react: 7.33.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@8.57.0)
-      typescript: 5.4.2
+      typescript: 5.4.4
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -1372,7 +1372,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.4)
       debug: 3.2.7
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
@@ -1391,7 +1391,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.4)
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.3
       array.prototype.flat: 1.3.2
@@ -2987,15 +2987,15 @@ packages:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
-  /prisma-erd-generator@1.11.2(@prisma/client@5.11.0)(typescript@5.4.2):
+  /prisma-erd-generator@1.11.2(@prisma/client@5.12.1)(typescript@5.4.4):
     resolution: {integrity: sha512-abo2EBIjqJALfjm8p+uOsQk38DlU3rlLJA9/cOvcLLt8A9bjMkRwlqaZDAD/iXVZcXJRJPgJ98fEviTa+w8oTQ==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
       '@prisma/client': ^4.0.0 || ^5.0.0
     dependencies:
-      '@mermaid-js/mermaid-cli': 10.8.0(typescript@5.4.2)
-      '@prisma/client': 5.11.0(prisma@5.11.0)
+      '@mermaid-js/mermaid-cli': 10.8.0(typescript@5.4.4)
+      '@prisma/client': 5.12.1(prisma@5.12.1)
       '@prisma/generator-helper': 5.3.0
       dotenv: 16.3.1
     transitivePeerDependencies:
@@ -3006,13 +3006,13 @@ packages:
       - utf-8-validate
     dev: false
 
-  /prisma@5.11.0:
-    resolution: {integrity: sha512-KCLiug2cs0Je7kGkQBN9jDWoZ90ogE/kvZTUTgz2h94FEo8pczCkPH7fPNXkD1sGU7Yh65risGGD1HQ5DF3r3g==}
+  /prisma@5.12.1:
+    resolution: {integrity: sha512-SkMnb6wyIxTv9ACqiHBI2u9gD6y98qXRoCoLEnZsF6yee5Qg828G+ARrESN+lQHdw4maSZFFSBPPDpvSiVTo0Q==}
     engines: {node: '>=16.13'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 5.11.0
+      '@prisma/engines': 5.12.1
     dev: false
 
   /progress@2.0.3:
@@ -3044,7 +3044,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /puppeteer-core@19.11.1(typescript@5.4.2):
+  /puppeteer-core@19.11.1(typescript@5.4.4):
     resolution: {integrity: sha512-qcuC2Uf0Fwdj9wNtaTZ2OvYRraXpAK+puwwVW8ofOhOgLPZyz1c68tsorfIZyCUOpyBisjr+xByu7BMbEYMepA==}
     engines: {node: '>=14.14.0'}
     peerDependencies:
@@ -3053,7 +3053,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@puppeteer/browsers': 0.5.0(typescript@5.4.2)
+      '@puppeteer/browsers': 0.5.0(typescript@5.4.4)
       chromium-bidi: 0.4.7(devtools-protocol@0.0.1107588)
       cross-fetch: 3.1.5
       debug: 4.3.4
@@ -3062,7 +3062,7 @@ packages:
       https-proxy-agent: 5.0.1
       proxy-from-env: 1.1.0
       tar-fs: 2.1.1
-      typescript: 5.4.2
+      typescript: 5.4.4
       unbzip2-stream: 1.4.3
       ws: 8.13.0
     transitivePeerDependencies:
@@ -3072,17 +3072,17 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@19.11.1(typescript@5.4.2):
+  /puppeteer@19.11.1(typescript@5.4.4):
     resolution: {integrity: sha512-39olGaX2djYUdhaQQHDZ0T0GwEp+5f9UB9HmEP0qHfdQHIq0xGQZuAZ5TLnJIc/88SrPLpEflPC+xUqOTv3c5g==}
     deprecated: < 21.5.0 is no longer supported
     requiresBuild: true
     dependencies:
-      '@puppeteer/browsers': 0.5.0(typescript@5.4.2)
+      '@puppeteer/browsers': 0.5.0(typescript@5.4.4)
       cosmiconfig: 8.1.3
       https-proxy-agent: 5.0.1
       progress: 2.0.3
       proxy-from-env: 1.1.0
-      puppeteer-core: 19.11.1(typescript@5.4.2)
+      puppeteer-core: 19.11.1(typescript@5.4.4)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -3602,14 +3602,14 @@ packages:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
 
-  /tsutils@3.21.0(typescript@5.4.2):
+  /tsutils@3.21.0(typescript@5.4.4):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 5.4.2
+      typescript: 5.4.4
     dev: false
 
   /type-check@0.4.0:
@@ -3663,8 +3663,8 @@ packages:
       for-each: 0.3.3
       is-typed-array: 1.1.12
 
-  /typescript@5.4.2:
-    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
+  /typescript@5.4.4:
+    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
