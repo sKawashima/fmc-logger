@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.6.0",
-    "@prisma/client": "^5.11.0",
+    "@prisma/client": "^5.12.1",
     "@types/node": "20.12.2",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.24",
