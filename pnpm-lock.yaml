@@ -7,10 +7,10 @@ settings:
 dependencies:
   '@auth/prisma-adapter':
     specifier: ^1.6.0
-    version: 1.6.0(@prisma/client@5.11.0)
+    version: 1.6.0(@prisma/client@5.12.1)
   '@prisma/client':
-    specifier: ^5.11.0
-    version: 5.11.0(prisma@5.12.1)
+    specifier: ^5.12.1
+    version: 5.12.1(prisma@5.12.1)
   '@types/node':
     specifier: 20.12.2
     version: 20.12.2
@@ -49,7 +49,7 @@ dependencies:
     version: 5.12.1
   prisma-erd-generator:
     specifier: ^1.11.2
-    version: 1.11.2(@prisma/client@5.11.0)(typescript@5.4.4)
+    version: 1.11.2(@prisma/client@5.12.1)(typescript@5.4.4)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -116,13 +116,13 @@ packages:
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/prisma-adapter@1.6.0(@prisma/client@5.11.0):
+  /@auth/prisma-adapter@1.6.0(@prisma/client@5.12.1):
     resolution: {integrity: sha512-PQU8/Oi5gfjzb0MkhMGVX0Dg877phPzsQdK54+C7ubukCeZPjyvuSAx1vVtWEYVWp2oQvjgG/C6QiDoeC7S10A==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5'
     dependencies:
       '@auth/core': 0.29.0
-      '@prisma/client': 5.11.0(prisma@5.12.1)
+      '@prisma/client': 5.12.1(prisma@5.12.1)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -378,8 +378,8 @@ packages:
     dev: false
     optional: true
 
-  /@prisma/client@5.11.0(prisma@5.12.1):
-    resolution: {integrity: sha512-SWshvS5FDXvgJKM/a0y9nDC1rqd7KG0Q6ZVzd+U7ZXK5soe73DJxJJgbNBt2GNXOa+ysWB4suTpdK5zfFPhwiw==}
+  /@prisma/client@5.12.1(prisma@5.12.1):
+    resolution: {integrity: sha512-6/JnizEdlSBxDIdiLbrBdMW5NqDxOmhXAJaNXiPpgzAPr/nLZResT6MMpbOHLo5yAbQ1Vv5UU8PTPRzb0WIxdA==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -2987,7 +2987,7 @@ packages:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
-  /prisma-erd-generator@1.11.2(@prisma/client@5.11.0)(typescript@5.4.4):
+  /prisma-erd-generator@1.11.2(@prisma/client@5.12.1)(typescript@5.4.4):
     resolution: {integrity: sha512-abo2EBIjqJALfjm8p+uOsQk38DlU3rlLJA9/cOvcLLt8A9bjMkRwlqaZDAD/iXVZcXJRJPgJ98fEviTa+w8oTQ==}
     engines: {node: '>=14'}
     hasBin: true
@@ -2995,7 +2995,7 @@ packages:
       '@prisma/client': ^4.0.0 || ^5.0.0
     dependencies:
       '@mermaid-js/mermaid-cli': 10.8.0(typescript@5.4.4)
-      '@prisma/client': 5.11.0(prisma@5.12.1)
+      '@prisma/client': 5.12.1(prisma@5.12.1)
       '@prisma/generator-helper': 5.3.0
       dotenv: 16.3.1
     transitivePeerDependencies:
