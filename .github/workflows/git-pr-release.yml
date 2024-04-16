@@ -17,7 +17,7 @@ jobs:
         with:
           ruby-version: 3.1
       - run: gem install -N git-pr-release -v "2.2.0"
-      - run: git-pr-release --overwrite-description
+      - run: git-pr-release --overwrite-description  --squashed
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: production
