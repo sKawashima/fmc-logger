@@ -70,8 +70,8 @@ importers:
         version: 5.6.2
     devDependencies:
       '@line/ts-remove-unused':
-        specifier: ^0.3.0
-        version: 0.3.0(typescript@5.6.2)
+        specifier: ^0.4.0
+        version: 0.4.0(typescript@5.6.2)
       '@types/scrambo':
         specifier: ^0.3.3
         version: 0.3.3
@@ -163,8 +163,8 @@ packages:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
 
-  '@line/ts-remove-unused@0.3.0':
-    resolution: {integrity: sha512-FTpmFBND3ESWAtTSPReOSaokzrN2bP74kwPtfpSUHlPLv1mn01FaMUJbjmi8Tvj7JMehvKFnb4uEugytN/lwLg==}
+  '@line/ts-remove-unused@0.4.0':
+    resolution: {integrity: sha512-TISmBxK7juZoXG/njsxqDIq5onRD3kP9Mol0FQcA/b7bLzaB3l8Rn01FodX6jQwLR+3g8LrcaemafLBARPkNNg==}
     hasBin: true
     peerDependencies:
       typescript: '>=4.0.0'
@@ -2391,7 +2391,7 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@line/ts-remove-unused@0.3.0(typescript@5.6.2)':
+  '@line/ts-remove-unused@0.4.0(typescript@5.6.2)':
     dependencies:
       cac: 6.7.14
       chalk: 5.3.0
