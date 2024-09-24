@@ -41,7 +41,7 @@
     "typescript": "5.6.2"
   },
   "devDependencies": {
-    "@line/ts-remove-unused": "^0.4.0",
+    "@line/ts-remove-unused": "^0.5.2",
     "@types/scrambo": "^0.3.3",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.10",
