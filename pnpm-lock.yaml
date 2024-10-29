@@ -70,8 +70,8 @@ importers:
         version: 5.6.3
     devDependencies:
       '@line/ts-remove-unused':
-        specifier: ^0.5.2
-        version: 0.5.2(typescript@5.6.3)
+        specifier: ^0.6.2
+        version: 0.6.2(typescript@5.6.3)
       '@types/scrambo':
         specifier: ^0.3.3
         version: 0.3.3
@@ -166,8 +166,8 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@line/ts-remove-unused@0.5.2':
-    resolution: {integrity: sha512-1eKXUiL4+bxsy5V7aTAs/IMFH5M6NVwwF9Dn9dTF1/avZf+qgbj2kjOwSqgyk9NERNP7yX4PY5ylyN6hGZ5efw==}
+  '@line/ts-remove-unused@0.6.2':
+    resolution: {integrity: sha512-gGfkbOBv6BMfDCBBPbcXL0hXty+DkhOt/3cI6cJLfX8GSXjqBjKpFCxkiGAmUm3I4G3BarXmpzUjAWW5mxhdlw==}
     hasBin: true
     peerDependencies:
       typescript: '>=4.0.0'
@@ -2876,7 +2876,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@line/ts-remove-unused@0.5.2(typescript@5.6.3)':
+  '@line/ts-remove-unused@0.6.2(typescript@5.6.3)':
     dependencies:
       cac: 6.7.14
       chalk: 5.3.0
