@@ -15,8 +15,8 @@ importers:
         specifier: ^5.21.1
         version: 5.21.1(prisma@5.21.1)
       '@types/node':
-        specifier: 22.8.1
-        version: 22.8.1
+        specifier: 22.8.7
+        version: 22.8.7
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -339,8 +339,8 @@ packages:
   '@types/ms@0.7.31':
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  '@types/node@22.8.1':
-    resolution: {integrity: sha512-k6Gi8Yyo8EtrNtkHXutUu2corfDf9su95VYVP10aGYMMROM6SAItZi0w1XszA6RtWTHSVp5OeFof37w0IEqCQg==}
+  '@types/node@22.8.7':
+    resolution: {integrity: sha512-LidcG+2UeYIWcMuMUpBKOnryBWG/rnmOHQR5apjn8myTQcx3rinFRn7DcIFhMnS0PPFSC6OafdIKEad0lj6U0Q==}
 
   '@types/prop-types@15.7.5':
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -3019,7 +3019,7 @@ snapshots:
 
   '@types/cross-spawn@6.0.2':
     dependencies:
-      '@types/node': 22.8.1
+      '@types/node': 22.8.7
 
   '@types/d3-scale-chromatic@3.0.3': {}
 
@@ -3043,7 +3043,7 @@ snapshots:
 
   '@types/ms@0.7.31': {}
 
-  '@types/node@22.8.1':
+  '@types/node@22.8.7':
     dependencies:
       undici-types: 6.19.8
 
@@ -3070,7 +3070,7 @@ snapshots:
 
   '@types/yauzl@2.10.0':
     dependencies:
-      '@types/node': 22.8.1
+      '@types/node': 22.8.7
     optional: true
 
   '@typescript-eslint/eslint-plugin@7.2.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)':
