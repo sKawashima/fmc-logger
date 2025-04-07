@@ -38,7 +38,7 @@
     "react-dom": "18.3.1",
     "reset-css": "^5.0.2",
     "scrambo": "^0.3.0",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "devDependencies": {
     "@line/ts-remove-unused": "^0.10.1",
