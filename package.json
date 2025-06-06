@@ -28,7 +28,7 @@
     "dayjs": "^1.11.13",
     "dayjs": "^1.11.13",
     "eslint": "9.27.0",
-    "eslint-config-next": "15.3.2",
+    "eslint-config-next": "15.3.3",
     "evergreen-ui": "^7.1.9",
     "next": "14.2.26",
     "next-auth": "^4.24.11",
