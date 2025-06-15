@@ -1,6 +1,5 @@
 'use client'
 
-import { Pane, Alert, Button, majorScale } from 'evergreen-ui'
 import { useEffect } from 'react'
 
 export default function Error({
@@ -15,26 +14,21 @@ export default function Error({
   }, [error])
 
   return (
-    <Pane
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      height="50vh"
-      padding={majorScale(4)}
-    >
-      <Pane maxWidth={majorScale(60)}>
-        <Alert
-          intent="danger"
-          title="エラーが発生しました"
-          marginBottom={majorScale(2)}
-        >
-          申し訳ございませんが、予期しないエラーが発生しました。
-          しばらくしてから再度お試しください。
-        </Alert>
-        <Button appearance="primary" intent="danger" onClick={() => reset()}>
+    <div className="flex items-center justify-center h-[50vh] p-major-4">
+      <div className="max-w-major-60">
+        <div className="alert-danger mb-major-2">
+          <h3 className="font-medium text-danger-700 mb-2">
+            エラーが発生しました
+          </h3>
+          <p className="text-danger-600">
+            申し訳ございませんが、予期しないエラーが発生しました。
+            しばらくしてから再度お試しください。
+          </p>
+        </div>
+        <button className="btn-danger" onClick={() => reset()}>
           再試行
-        </Button>
-      </Pane>
-    </Pane>
+        </button>
+      </div>
+    </div>
   )
 }

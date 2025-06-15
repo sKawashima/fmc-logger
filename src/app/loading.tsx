@@ -1,19 +1,8 @@
-import { Pane, Spinner, majorScale } from 'evergreen-ui'
-
 export default function Loading() {
   return (
-    <Pane
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      height="50vh"
-      flexDirection="column"
-      gap={majorScale(2)}
-    >
-      <Spinner size={majorScale(4)} />
-      <Pane fontSize={majorScale(2)} color="muted">
-        読み込み中...
-      </Pane>
-    </Pane>
+    <div className="flex items-center justify-center h-[50vh] flex-col gap-major-2">
+      <div className="spinner w-major-4 h-major-4"></div>
+      <div className="text-major-2 text-gray-600">読み込み中...</div>
+    </div>
   )
 }

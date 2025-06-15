@@ -1,6 +1,5 @@
 'use client'
 
-import { Pane, Alert, Button, majorScale } from 'evergreen-ui'
 import { useEffect } from 'react'
 
 export default function Error({
@@ -15,18 +14,19 @@ export default function Error({
   }, [error])
 
   return (
-    <Pane padding={majorScale(4)}>
-      <Alert
-        intent="danger"
-        title="ユーザーID設定でエラーが発生しました"
-        marginBottom={majorScale(3)}
-      >
-        ユーザーID設定の処理中にエラーが発生しました。
-        再度お試しいただくか、しばらく時間をおいてからアクセスしてください。
-      </Alert>
-      <Button appearance="primary" intent="danger" onClick={() => reset()}>
+    <div className="p-major-4">
+      <div className="alert-danger mb-major-3">
+        <h3 className="font-medium text-danger-700 mb-2">
+          ユーザーID設定でエラーが発生しました
+        </h3>
+        <p className="text-danger-600">
+          ユーザーID設定の処理中にエラーが発生しました。
+          再度お試しいただくか、しばらく時間をおいてからアクセスしてください。
+        </p>
+      </div>
+      <button className="btn-danger" onClick={() => reset()}>
         再試行
-      </Button>
-    </Pane>
+      </button>
+    </div>
   )
 }

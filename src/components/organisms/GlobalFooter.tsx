@@ -1,23 +1,20 @@
-import { Link as LinkText, Pane, Paragraph, majorScale } from 'evergreen-ui'
-
 export const GlobalFooter = () => {
   return (
     <footer>
-      <Pane marginTop={majorScale(4)}>
-        <Paragraph fontWeight="bold" textAlign="center">
-          © 2021 FMC Logger
-        </Paragraph>
-        <Paragraph textAlign="center">
+      <div className="mt-major-4">
+        <p className="font-bold text-center">© 2021 FMC Logger</p>
+        <p className="text-center">
           Developed by{' '}
-          <LinkText
+          <a
             href="https://github.com/sKawashima/fmc-logger"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-primary-500 hover:text-primary-600 underline"
           >
             sKawashima
-          </LinkText>
-        </Paragraph>
-      </Pane>
+          </a>
+        </p>
+      </div>
     </footer>
   )
 }

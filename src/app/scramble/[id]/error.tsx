@@ -1,6 +1,5 @@
 'use client'
 
-import { Pane, Alert, Button, majorScale } from 'evergreen-ui'
 import { useEffect } from 'react'
 
 export default function Error({
@@ -15,26 +14,22 @@ export default function Error({
   }, [error])
 
   return (
-    <Pane padding={majorScale(4)}>
-      <Alert
-        intent="danger"
-        title="スクランブルの読み込みに失敗しました"
-        marginBottom={majorScale(3)}
-      >
-        スクランブルデータの取得中にエラーが発生しました。
-        ネットワーク接続を確認して、再度お試しください。
-      </Alert>
-      <Button
-        appearance="primary"
-        intent="danger"
-        onClick={() => reset()}
-        marginRight={majorScale(2)}
-      >
+    <div className="p-major-4">
+      <div className="alert-danger mb-major-3">
+        <h3 className="font-medium text-danger-700 mb-2">
+          スクランブルの読み込みに失敗しました
+        </h3>
+        <p className="text-danger-600">
+          スクランブルデータの取得中にエラーが発生しました。
+          ネットワーク接続を確認して、再度お試しください。
+        </p>
+      </div>
+      <button className="btn-danger mr-major-2" onClick={() => reset()}>
         再試行
-      </Button>
-      <Button appearance="minimal" onClick={() => window.history.back()}>
+      </button>
+      <button className="btn-secondary" onClick={() => window.history.back()}>
         戻る
-      </Button>
-    </Pane>
+      </button>
+    </div>
   )
 }

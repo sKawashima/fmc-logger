@@ -1,6 +1,5 @@
 'use client'
 
-import { Pane, Alert, Button, majorScale } from 'evergreen-ui'
 import { useEffect } from 'react'
 
 export default function Error({
@@ -15,26 +14,25 @@ export default function Error({
   }, [error])
 
   return (
-    <Pane padding={majorScale(4)}>
-      <Alert
-        intent="danger"
-        title="ユーザー情報の読み込みに失敗しました"
-        marginBottom={majorScale(3)}
-      >
-        ユーザーデータの取得中にエラーが発生しました。
-        ユーザーが存在しないか、アクセス権限がない可能性があります。
-      </Alert>
-      <Button
-        appearance="primary"
-        intent="danger"
-        onClick={() => reset()}
-        marginRight={majorScale(2)}
-      >
+    <div className="p-major-4">
+      <div className="alert-danger mb-major-3">
+        <h3 className="font-medium text-danger-700 mb-2">
+          ユーザー情報の読み込みに失敗しました
+        </h3>
+        <p className="text-danger-600">
+          ユーザーデータの取得中にエラーが発生しました。
+          ユーザーが存在しないか、アクセス権限がない可能性があります。
+        </p>
+      </div>
+      <button className="btn-danger mr-major-2" onClick={() => reset()}>
         再試行
-      </Button>
-      <Button appearance="minimal" onClick={() => (window.location.href = '/')}>
+      </button>
+      <button
+        className="btn-secondary"
+        onClick={() => (window.location.href = '/')}
+      >
         ホームに戻る
-      </Button>
-    </Pane>
+      </button>
+    </div>
   )
 }

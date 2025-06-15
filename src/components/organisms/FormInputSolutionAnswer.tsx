@@ -1,63 +1,100 @@
 'use client'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
-import { Alert, Button, Pane, Textarea, TextareaField } from 'evergreen-ui'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { createSolutionFromData } from '@/app/actions/solution'
+import { useState, useTransition } from 'react'
 
 type Props = {
   scrambleId: number
 }
 
 export const FormInputSolutionAnswer = (props: Props) => {
-  const router = useRouter()
   const [solutionError, setSolutionError] = useState<string | null>(null)
   const [pushError, setPushError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
 
-  const onSubmit = async () => {
-    const solutionInputElement = document.getElementById(
-      'solutionInput',
-    ) as HTMLTextAreaElement
-    const commentInputElement = document.getElementById(
-      'commentInput',
-    ) as HTMLTextAreaElement
-    if (!solutionInputElement || !commentInputElement) return
+  const onSubmit = async (formData: FormData) => {
+    const solution = formData.get('solution') as string
+    const comment = formData.get('comment') as string
 
     try {
-      cubeNotationNormalizer(solutionInputElement.value)
+      cubeNotationNormalizer(solution)
     } catch (e) {
       setSolutionError('回転記号が正しくありません')
       return
     }
 
     setSolutionError(null)
-    const responce = await fetch('/api/solution', {
-      method: 'POST',
-      body: JSON.stringify({
-        scrambleId: props.scrambleId,
-        solution: solutionInputElement.value,
-        comment: commentInputElement.value,
-      }),
-    })
+    setPushError(null)
 
-    if (responce) {
-      router.refresh()
-    } else {
-      setPushError('送信に失敗しました')
-    }
+    startTransition(async () => {
+      try {
+        await createSolutionFromData(props.scrambleId, solution, comment)
+      } catch (error) {
+        setPushError('送信に失敗しました')
+      }
+    })
   }
 
   return (
-    <Pane>
-      {solutionError && <Alert intent="danger">{solutionError}</Alert>}
-      <TextareaField
-        id="solutionInput"
-        placeholder="Solution"
-        validationMessage={solutionError}
-        isInvalid={Boolean(solutionError)}
-      />
-      <Textarea id="commentInput" placeholder="Comment" />
-      {pushError && <Alert intent="danger">{pushError}</Alert>}
-      <Button onClick={onSubmit}>submit</Button>
-    </Pane>
+    <div className="space-y-4">
+      {solutionError && (
+        <div className="alert-danger">
+          <p className="text-danger-700 font-medium">{solutionError}</p>
+        </div>
+      )}
+
+      <form action={onSubmit}>
+        <div className="space-y-4">
+          <div>
+            <label
+              htmlFor="solution"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Solution
+            </label>
+            <textarea
+              id="solution"
+              name="solution"
+              placeholder="解法を入力してください"
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
+                solutionError ? 'border-danger-500' : 'border-gray-300'
+              }`}
+              rows={4}
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="comment"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Comment
+            </label>
+            <textarea
+              id="comment"
+              name="comment"
+              placeholder="コメント (任意)"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              rows={2}
+            />
+          </div>
+
+          {pushError && (
+            <div className="alert-danger">
+              <p className="text-danger-700 font-medium">{pushError}</p>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={isPending}
+            className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isPending ? '送信中...' : '提出'}
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }

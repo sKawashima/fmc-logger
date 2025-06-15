@@ -1,18 +1,11 @@
-import { Pane, majorScale } from 'evergreen-ui'
-
 type Props = {
   children: React.ReactNode
 }
 
 export const GlobalBodyWrapper = (props: Props) => {
   return (
-    <Pane
-      maxWidth={majorScale(160)}
-      marginX="auto"
-      padding={majorScale(2)}
-      minHeight="calc(100vh - 48px - 56px - 36px)"
-    >
+    <div className="max-w-[1280px] mx-auto p-major-2 min-h-[calc(100vh-140px)]">
       {props.children}
-    </Pane>
+    </div>
   )
 }
