@@ -16,7 +16,7 @@ export const GlobalHeader = (props: Props) => {
   return (
     <header>
       <div className="border-b border-gray-200">
-        <div className="flex justify-between items-center max-w-[1280px] mx-auto px-major-2 py-major-1">
+        <div className="flex justify-between items-center max-w-[1280px] mx-auto px-4 py-2">
           <h1
             className="text-2xl font-bold cursor-pointer hover:text-primary-600 transition-colors"
             onClick={() => {

@@ -1,8 +1,8 @@
 import { GlobalLayout } from '@/components/templates/GlobalLayout'
-import { HeroUIProvider } from '@heroui/react'
 import type { Metadata } from 'next'
 import 'reset-css'
 import './globals.css'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: {
@@ -60,11 +60,11 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <HeroUIProvider>
-          <main className="light text-foreground bg-background">
+        <Providers>
+          <main className="text-foreground bg-background">
             <GlobalLayout>{children}</GlobalLayout>
           </main>
-        </HeroUIProvider>
+        </Providers>
       </body>
     </html>
   )

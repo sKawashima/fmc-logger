@@ -2,49 +2,83 @@
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 import { createSolutionFromData } from '@/app/actions/solution'
 import { Button, Chip, Textarea } from '@heroui/react'
-import { useState, useTransition } from 'react'
+import { useFormState, useFormStatus } from 'react-dom'
 
 type Props = {
   scrambleId: number
 }
 
-export const FormInputSolutionAnswer = (props: Props) => {
-  const [solutionError, setSolutionError] = useState<string | null>(null)
-  const [pushError, setPushError] = useState<string | null>(null)
-  const [isPending, startTransition] = useTransition()
+function SubmitButton() {
+  const { pending } = useFormStatus()
 
-  const onSubmit = async (formData: FormData) => {
+  return (
+    <Button
+      type="submit"
+      color="primary"
+      isLoading={pending}
+      isDisabled={pending}
+    >
+      {pending ? '送信中...' : '提出'}
+    </Button>
+  )
+}
+
+export const FormInputSolutionAnswer = (props: Props) => {
+  const initialState = {
+    message: null,
+    errors: {
+      solution: null,
+      comment: null,
+    },
+  }
+
+  const createSolutionWithId = async (prevState: any, formData: FormData) => {
     const solution = formData.get('solution') as string
     const comment = formData.get('comment') as string
 
     try {
       cubeNotationNormalizer(solution)
     } catch (e) {
-      setSolutionError('回転記号が正しくありません')
-      return
+      return {
+        message: null,
+        errors: {
+          solution: '回転記号が正しくありません',
+          comment: null,
+        },
+      }
     }
 
-    setSolutionError(null)
-    setPushError(null)
-
-    startTransition(async () => {
-      try {
-        await createSolutionFromData(props.scrambleId, solution, comment)
-      } catch (error) {
-        setPushError('送信に失敗しました')
+    try {
+      await createSolutionFromData(props.scrambleId, solution, comment)
+      return {
+        message: 'success',
+        errors: {
+          solution: null,
+          comment: null,
+        },
       }
-    })
+    } catch (error) {
+      return {
+        message: '送信に失敗しました',
+        errors: {
+          solution: null,
+          comment: null,
+        },
+      }
+    }
   }
+
+  const [state, formAction] = useFormState(createSolutionWithId, initialState)
 
   return (
     <div className="space-y-4">
-      {solutionError && (
+      {state.errors.solution && (
         <Chip color="danger" variant="flat">
-          {solutionError}
+          {state.errors.solution}
         </Chip>
       )}
 
-      <form action={onSubmit}>
+      <form action={formAction}>
         <div className="space-y-4">
           <Textarea
             id="solution"
@@ -53,7 +87,8 @@ export const FormInputSolutionAnswer = (props: Props) => {
             placeholder="解法を入力してください"
             minRows={4}
             isRequired
-            isInvalid={!!solutionError}
+            isInvalid={!!state.errors.solution}
+            autoComplete="off"
           />
 
           <Textarea
@@ -62,22 +97,16 @@ export const FormInputSolutionAnswer = (props: Props) => {
             label="Comment"
             placeholder="コメント (任意)"
             minRows={2}
+            autoComplete="off"
           />
 
-          {pushError && (
+          {state.message && state.message !== 'success' && (
             <Chip color="danger" variant="flat">
-              {pushError}
+              {state.message}
             </Chip>
           )}
 
-          <Button
-            type="submit"
-            color="primary"
-            isLoading={isPending}
-            isDisabled={isPending}
-          >
-            {isPending ? '送信中...' : '提出'}
-          </Button>
+          <SubmitButton />
         </div>
       </form>
     </div>

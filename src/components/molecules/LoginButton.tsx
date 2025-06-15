@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react'
 
 export const LoginButton = () => {
   return (
-    <Button color="primary" size="lg" onClick={() => signIn()}>
+    <Button color="primary" variant="solid" size="lg" onClick={() => signIn()}>
       Sign in
     </Button>
   )
