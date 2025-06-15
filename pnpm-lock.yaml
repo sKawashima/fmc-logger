@@ -70,9 +70,6 @@ dependencies:
     version: 5.8.3
 
 devDependencies:
-  '@line/ts-remove-unused':
-    specifier: ^0.10.1
-    version: 0.10.1(typescript@5.8.3)
   '@tailwindcss/postcss':
     specifier: ^4.1.10
     version: 4.1.10
@@ -689,18 +686,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  /@line/ts-remove-unused@0.10.1(typescript@5.8.3):
-    resolution: {integrity: sha512-n9jJnhXqLI1Rcfklo8nVkwxD0xMNWshTigjX8z4B0dWm87wCrdHbLpV90lr5Qi25DRGpN5vEjAL277EL4pKISw==}
-    deprecated: This package has been renamed to 'tsr'. Install with 'npm i tsr'.
-    hasBin: true
-    peerDependencies:
-      typescript: '>=4.0.0'
-    dependencies:
-      cac: 6.7.14
-      chalk: 5.4.1
-      typescript: 5.8.3
-    dev: true
 
   /@mermaid-js/mermaid-cli@11.4.3(@types/react@19.1.8)(puppeteer@23.11.1):
     resolution: {integrity: sha512-N0kjhWQXQXUc8LkRzySvKPqoZ1LMA9mxFyqShjUhbAHGTYYOYkXCD3+shmO2OWVJ9iOUKQQ6+Y6jY+U5JeiTSw==}
@@ -2170,11 +2155,6 @@ packages:
     dependencies:
       streamsearch: 1.1.0
     dev: false
-
-  /cac@6.7.14:
-    resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
-    engines: {node: '>=8'}
-    dev: true
 
   /call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
@@ -6334,6 +6314,7 @@ packages:
     resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: false
 
   /ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}

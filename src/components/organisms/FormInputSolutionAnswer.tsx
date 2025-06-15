@@ -39,7 +39,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
     <div className="space-y-4">
       {solutionError && (
         <div className="alert-danger">
-          <p className="text-danger-700 font-medium">{solutionError}</p>
+          <p className="text-red-700 font-medium">{solutionError}</p>
         </div>
       )}
 
@@ -57,7 +57,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
               name="solution"
               placeholder="解法を入力してください"
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-                solutionError ? 'border-danger-500' : 'border-gray-300'
+                solutionError ? 'border-red-500' : 'border-gray-300'
               }`}
               rows={4}
               required
@@ -82,7 +82,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
 
           {pushError && (
             <div className="alert-danger">
-              <p className="text-danger-700 font-medium">{pushError}</p>
+              <p className="text-red-700 font-medium">{pushError}</p>
             </div>
           )}
 

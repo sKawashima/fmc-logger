@@ -3,7 +3,6 @@
 import { makeSolution } from '@/services/solution'
 import { getUser } from '@/services/user'
 import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
 
 export async function createSolution(formData: FormData) {
   const user = await getUser()

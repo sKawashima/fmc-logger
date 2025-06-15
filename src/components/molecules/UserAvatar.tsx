@@ -34,7 +34,7 @@ export const UserAvatar = (props: Props) => {
               className="w-8 h-8 rounded-full"
             />
           ) : (
-            <div className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
+            <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-medium">
               {getInitials(props.user?.name)}
             </div>
           )}
@@ -69,7 +69,7 @@ export const UserAvatar = (props: Props) => {
                 onClick={() => signOut()}
                 className={`${
                   active ? 'bg-gray-100' : ''
-                } block w-full text-left px-4 py-2 text-sm text-danger-600`}
+                } block w-full text-left px-4 py-2 text-sm text-red-700`}
               >
                 Logout
               </button>
