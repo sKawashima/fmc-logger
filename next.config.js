@@ -1,13 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    // Enable server actions for form handling
-    serverActions: true,
-  },
   // Optimize for production
   productionBrowserSourceMaps: false,
-  // Compile-time optimizations
-  swcMinify: true,
   // Image optimization settings
   images: {
     formats: ['image/webp', 'image/avif'],
