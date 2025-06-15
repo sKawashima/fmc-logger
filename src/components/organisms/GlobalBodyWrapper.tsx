@@ -1,5 +1,3 @@
-'use client'
-
 import { Pane, majorScale } from 'evergreen-ui'
 
 type Props = {
