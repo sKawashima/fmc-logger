@@ -8,9 +8,6 @@ dependencies:
   '@auth/prisma-adapter':
     specifier: ^2.9.1
     version: 2.9.1(@prisma/client@6.9.0)
-  '@headlessui/react':
-    specifier: ^2.2.4
-    version: 2.2.4(react-dom@19.1.0)(react@19.1.0)
   '@heroicons/react':
     specifier: ^2.2.0
     version: 2.2.0(react@19.1.0)
