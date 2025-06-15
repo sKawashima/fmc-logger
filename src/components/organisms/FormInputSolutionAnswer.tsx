@@ -23,8 +23,16 @@ function SubmitButton() {
   )
 }
 
+type FormState = {
+  message: string | null
+  errors: {
+    solution: string | null
+    comment: string | null
+  }
+}
+
 export const FormInputSolutionAnswer = (props: Props) => {
-  const initialState = {
+  const initialState: FormState = {
     message: null,
     errors: {
       solution: null,
@@ -32,7 +40,10 @@ export const FormInputSolutionAnswer = (props: Props) => {
     },
   }
 
-  const createSolutionWithId = async (prevState: any, formData: FormData) => {
+  const createSolutionWithId = async (
+    _prevState: FormState,
+    formData: FormData,
+  ): Promise<FormState> => {
     const solution = formData.get('solution') as string
     const comment = formData.get('comment') as string
 
