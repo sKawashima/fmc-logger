@@ -2,10 +2,12 @@
 
 import { setUserShowIdFromData } from '@/app/actions/user'
 import { useState, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 
 export const FormUpdateUserShowId = () => {
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
+  const router = useRouter()
 
   const onSubmit = async (formData: FormData) => {
     const showId = formData.get('showId') as string
@@ -20,7 +22,9 @@ export const FormUpdateUserShowId = () => {
     startTransition(async () => {
       try {
         await setUserShowIdFromData(showId)
-        // リダイレクトはServer Action内で行われる
+        // 成功時にホームページにリダイレクト
+        router.push('/')
+        router.refresh()
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message)

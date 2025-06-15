@@ -46,6 +46,7 @@ export async function setUserShowIdFromData(showId: string) {
 
     // Revalidate the layout to update user info
     revalidatePath('/', 'layout')
+    revalidatePath('/user/setId')
 
     return { success: true, user: updatedUser }
   } catch (error) {
