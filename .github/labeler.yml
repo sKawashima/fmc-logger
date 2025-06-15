@@ -1,0 +1,12 @@
+database:
+- changed-files:
+  - any-glob-to-any-file: 'prisma/**/*'
+application:
+- changed-files:
+  - any-glob-to-any-file: 'src/**/*'
+documentation:
+- changed-files:
+  - any-glob-to-any-file: '**/*.md'
+ci:
+- changed-files:
+  - any-glob-to-any-file: '.github/**/*'
