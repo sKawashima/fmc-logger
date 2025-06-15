@@ -1,8 +1,55 @@
-# Claude Code プロジェクト設定ガイド
+# CLAUDE.md
 
-このドキュメントは、fmc-loggerプロジェクトでClaude Codeを使用する際の重要な制約事項と設定をまとめたものです。
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 🔧 環境設定
+## Common Commands
+
+```bash
+# Development
+pnpm dev                    # Start development server (Next.js app + PostgreSQL via Docker)
+pnpm dev:app               # Start only Next.js development server
+pnpm dev:db                # Start only PostgreSQL database
+
+# Build & Production
+pnpm build                 # Build the Next.js application
+pnpm start                 # Start production server
+
+# Code Quality
+pnpm lint                  # Run ESLint
+pnpm format                # Format code with Prettier
+
+# Database Management
+pnpm migrate               # Run Prisma migrations (format, migrate dev, generate)
+pnpm prisma-generate       # Generate Prisma client
+pnpm studio                # Open Prisma Studio for database management
+```
+
+## High-Level Architecture
+
+### Tech Stack
+
+- **Framework**: Next.js 15.3.3 with App Router
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: NextAuth.js with Prisma adapter
+- **Styling**: Tailwind CSS v3 + HeroUI (formerly NextUI)
+- **Language**: TypeScript
+- **Package Manager**: pnpm
+
+### Database Schema
+
+- **User**: Authenticated users with optional showId for public profile
+- **Scramble**: Daily FMC (Fewest Moves Challenge) scrambles
+- **Solution**: User solutions with scores and comments
+- **Auth Models**: Account, Session, VerificationToken (NextAuth.js)
+
+### Key Application Routes
+
+- `/`: Home page with today's scramble challenge
+- `/user/setId`: Set user's public ID
+- `/user/[userid]`: User profile page
+- `/scramble/[id]`: Individual scramble page with solution form
+
+## Environment Setup
 
 ### Node.jsバージョン管理
 
@@ -15,16 +62,9 @@
 eval "$(fnm env --shell bash)" && fnm use 22
 ```
 
-## 📦 パッケージ管理
+## UI Library Configuration
 
-### パッケージマネージャー
-
-- **使用ツール**: pnpm
-- **理由**: HeroUIとの互換性が高く、依存関係の問題を回避できる
-
-## 🎨 UIライブラリ設定
-
-### HeroUI (旧NextUI) の重要事項
+### HeroUI (formerly NextUI) Critical Setup
 
 1. **Tailwind CSS バージョン**
 
@@ -50,7 +90,26 @@ eval "$(fnm env --shell bash)" && fnm use 22
    - Buttonコンポーネント: `variant="solid"`を明示的に指定
    - Alertコンポーネント: デフォルトは`flat`なので、背景色が必要な場合は`variant="solid"`を指定
 
-## 🚨 トラブルシューティング手順
+## Project-Specific Constraints
+
+### Authentication Configuration
+
+- NextAuth.js is configured with Prisma adapter
+- OAuth providers need to be configured in environment variables
+- User sessions are stored in PostgreSQL
+
+### Form Handling
+
+- Server Actions are used for form submissions (App Router pattern)
+- Example: `FormSetUserId` and `FormInputSolutionAnswer` use server actions
+
+### Rubik's Cube Libraries
+
+- `scrambo`: Generate WCA-standard scrambles
+- `cubejs`: Cube manipulation and validation
+- `cube-notation-normalizer`: Normalize FMC notation
+
+## Troubleshooting
 
 ### スタイルが適用されない場合
 
@@ -65,7 +124,7 @@ eval "$(fnm env --shell bash)" && fnm use 22
 2. `pnpm install`で依存関係を再インストール
 3. ESモジュール形式の設定ファイル（.mjs）を使用しているか確認
 
-## 📚 情報源の優先順位
+## Important Notes
 
 1. **公式ドキュメント**: https://heroui.com/docs/
 
@@ -79,28 +138,6 @@ eval "$(fnm env --shell bash)" && fnm use 22
 3. **Stack Overflow**:
    - NextUI/HeroUI + Next.js 15の組み合わせの問題を検索
 
-## 🔍 調査時の注意点
-
-- HeroUIは以前NextUIという名前だったため、両方の名前で検索する
-- Next.js 15は比較的新しいため、バージョン固有の問題に注意
-- Tailwind CSS v4との互換性問題は開発中のため、定期的に確認
-
-## 💡 開発のベストプラクティス
-
-1. **カスタムCSSクラスの使用を避ける**
-
-   - HeroUIの標準コンポーネントとTailwindのユーティリティクラスを優先
-
-2. **コンポーネントのvariant指定**
-
-   - 明示的にvariantを指定して、期待する見た目を確実に実現
-
-3. **キャッシュのクリア**
-   - スタイル関連の変更後は`.next`ディレクトリを削除して再ビルド
-
-## 🔄 更新履歴
-
-- 2024-06-15: 初版作成
-  - HeroUIスタイル適用問題の解決
-  - Node.js 22環境の設定
-  - カスタムクラスの削除とHeroUIコンポーネントへの移行
+- When searching for HeroUI documentation, also search for "NextUI" as it was recently renamed
+- Next.js 15 is relatively new, be aware of version-specific issues
+- Tailwind CSS v4 compatibility with HeroUI is still in development
