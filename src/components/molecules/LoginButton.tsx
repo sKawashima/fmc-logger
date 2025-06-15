@@ -1,11 +1,12 @@
 'use client'
 
+import { Button } from '@heroui/react'
 import { signIn } from 'next-auth/react'
 
 export const LoginButton = () => {
   return (
-    <button onClick={() => signIn()} className="btn-primary text-lg px-6 py-3">
+    <Button color="primary" size="lg" onClick={() => signIn()}>
       Sign in
-    </button>
+    </Button>
   )
 }

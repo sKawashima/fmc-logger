@@ -1,28 +1,53 @@
-import { Config } from 'tailwindcss'
+const { heroui } = require('@heroui/react')
 
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      spacing: {
-        'major-1': '8px',
-        'major-2': '16px',
-        'major-3': '24px',
-        'major-4': '32px',
-        'major-5': '40px',
-        'major-6': '48px',
-        'major-8': '64px',
-        'major-10': '80px',
-        'major-12': '96px',
-        'major-16': '128px',
-        'major-20': '160px',
-        'major-24': '192px',
-        'major-60': '480px',
-      },
-    },
+    extend: {},
   },
-} satisfies Config
+  plugins: [
+    heroui({
+      addCommonColors: true,
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#006FEE",
+              foreground: "#FFFFFF",
+            },
+            secondary: {
+              DEFAULT: "#9353D3",
+              foreground: "#FFFFFF",
+            },
+            danger: {
+              DEFAULT: "#F31260",
+              foreground: "#FFFFFF",
+            },
+          },
+        },
+        dark: {
+          colors: {
+            primary: {
+              DEFAULT: "#006FEE",
+              foreground: "#FFFFFF",
+            },
+            secondary: {
+              DEFAULT: "#9353D3",
+              foreground: "#FFFFFF",
+            },
+            danger: {
+              DEFAULT: "#F31260",
+              foreground: "#FFFFFF",
+            },
+          },
+        },
+      },
+    }),
+  ],
+}

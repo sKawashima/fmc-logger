@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { Button, Alert } from '@heroui/react'
 
 export default function Error({
   error,
@@ -14,20 +15,18 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="flex items-center justify-center h-[50vh] p-major-4">
-      <div className="max-w-major-60">
-        <div className="alert-danger mb-major-2">
-          <h3 className="font-medium text-red-700 mb-2">
-            エラーが発生しました
-          </h3>
-          <p className="text-red-700">
-            申し訳ございませんが、予期しないエラーが発生しました。
-            しばらくしてから再度お試しください。
-          </p>
-        </div>
-        <button className="btn-danger" onClick={() => reset()}>
+    <div className="flex items-center justify-center h-[50vh] p-8">
+      <div className="max-w-lg">
+        <Alert
+          color="danger"
+          variant="solid"
+          title="エラーが発生しました"
+          description="申し訳ございませんが、予期しないエラーが発生しました。しばらくしてから再度お試しください。"
+          className="mb-4"
+        />
+        <Button color="danger" variant="solid" onClick={() => reset()}>
           再試行
-        </button>
+        </Button>
       </div>
     </div>
   )

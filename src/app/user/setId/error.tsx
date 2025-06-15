@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { Button, Alert } from '@heroui/react'
 
 export default function Error({
   error,
@@ -14,19 +15,17 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="p-major-4">
-      <div className="alert-danger mb-major-3">
-        <h3 className="font-medium text-red-700 mb-2">
-          ユーザーID設定でエラーが発生しました
-        </h3>
-        <p className="text-red-700">
-          ユーザーID設定の処理中にエラーが発生しました。
-          再度お試しいただくか、しばらく時間をおいてからアクセスしてください。
-        </p>
-      </div>
-      <button className="btn-danger" onClick={() => reset()}>
+    <div className="p-8">
+      <Alert
+        color="danger"
+        variant="solid"
+        title="ユーザーID設定でエラーが発生しました"
+        description="ユーザーID設定の処理中にエラーが発生しました。再度お試しいただくか、しばらく時間をおいてからアクセスしてください。"
+        className="mb-6"
+      />
+      <Button color="danger" variant="solid" onClick={() => reset()}>
         再試行
-      </button>
+      </Button>
     </div>
   )
 }

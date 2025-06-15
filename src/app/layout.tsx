@@ -1,4 +1,5 @@
 import { GlobalLayout } from '@/components/templates/GlobalLayout'
+import { HeroUIProvider } from '@heroui/react'
 import type { Metadata } from 'next'
 import 'reset-css'
 import './globals.css'
@@ -59,7 +60,11 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <GlobalLayout>{children}</GlobalLayout>
+        <HeroUIProvider>
+          <main className="light text-foreground bg-background">
+            <GlobalLayout>{children}</GlobalLayout>
+          </main>
+        </HeroUIProvider>
       </body>
     </html>
   )

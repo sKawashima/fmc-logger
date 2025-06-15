@@ -1,6 +1,7 @@
 'use client'
 
 import { setUserShowIdFromData } from '@/app/actions/user'
+import { Button, Input } from '@heroui/react'
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -39,33 +40,26 @@ export const FormUpdateUserShowId = () => {
     <div className="max-w-md mx-auto space-y-4">
       <form action={onSubmit}>
         <div className="space-y-4">
-          <div>
-            <label
-              htmlFor="showId"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              ユーザーID
-            </label>
-            <input
-              id="showId"
-              name="showId"
-              type="text"
-              placeholder="ユーザーIDを入力"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-                error ? 'border-red-500' : 'border-gray-300'
-              }`}
-              required
-            />
-            {error && <p className="mt-1 text-sm text-red-700">{error}</p>}
-          </div>
+          <Input
+            id="showId"
+            name="showId"
+            type="text"
+            label="ユーザーID"
+            placeholder="ユーザーIDを入力"
+            isRequired
+            isInvalid={!!error}
+            errorMessage={error}
+          />
 
-          <button
+          <Button
             type="submit"
-            disabled={isPending}
-            className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            color="primary"
+            fullWidth
+            isLoading={isPending}
+            isDisabled={isPending}
           >
             {isPending ? '設定中...' : '設定'}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

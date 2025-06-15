@@ -1,6 +1,7 @@
 'use client'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 import { createSolutionFromData } from '@/app/actions/solution'
+import { Button, Chip, Textarea } from '@heroui/react'
 import { useState, useTransition } from 'react'
 
 type Props = {
@@ -38,61 +39,45 @@ export const FormInputSolutionAnswer = (props: Props) => {
   return (
     <div className="space-y-4">
       {solutionError && (
-        <div className="alert-danger">
-          <p className="text-red-700 font-medium">{solutionError}</p>
-        </div>
+        <Chip color="danger" variant="flat">
+          {solutionError}
+        </Chip>
       )}
 
       <form action={onSubmit}>
         <div className="space-y-4">
-          <div>
-            <label
-              htmlFor="solution"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Solution
-            </label>
-            <textarea
-              id="solution"
-              name="solution"
-              placeholder="解法を入力してください"
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
-                solutionError ? 'border-red-500' : 'border-gray-300'
-              }`}
-              rows={4}
-              required
-            />
-          </div>
+          <Textarea
+            id="solution"
+            name="solution"
+            label="Solution"
+            placeholder="解法を入力してください"
+            minRows={4}
+            isRequired
+            isInvalid={!!solutionError}
+          />
 
-          <div>
-            <label
-              htmlFor="comment"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Comment
-            </label>
-            <textarea
-              id="comment"
-              name="comment"
-              placeholder="コメント (任意)"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-              rows={2}
-            />
-          </div>
+          <Textarea
+            id="comment"
+            name="comment"
+            label="Comment"
+            placeholder="コメント (任意)"
+            minRows={2}
+          />
 
           {pushError && (
-            <div className="alert-danger">
-              <p className="text-red-700 font-medium">{pushError}</p>
-            </div>
+            <Chip color="danger" variant="flat">
+              {pushError}
+            </Chip>
           )}
 
-          <button
+          <Button
             type="submit"
-            disabled={isPending}
-            className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            color="primary"
+            isLoading={isPending}
+            isDisabled={isPending}
           >
             {isPending ? '送信中...' : '提出'}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

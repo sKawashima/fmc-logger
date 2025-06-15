@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { Button, Alert } from '@heroui/react'
 
 export default function Error({
   error,
@@ -14,25 +15,26 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="p-major-4">
-      <div className="alert-danger mb-major-3">
-        <h3 className="font-medium text-red-700 mb-2">
-          ユーザー情報の読み込みに失敗しました
-        </h3>
-        <p className="text-red-700">
-          ユーザーデータの取得中にエラーが発生しました。
-          ユーザーが存在しないか、アクセス権限がない可能性があります。
-        </p>
+    <div className="p-8">
+      <Alert
+        color="danger"
+        variant="solid"
+        title="ユーザー情報の読み込みに失敗しました"
+        description="ユーザーデータの取得中にエラーが発生しました。ユーザーが存在しないか、アクセス権限がない可能性があります。"
+        className="mb-6"
+      />
+      <div className="flex gap-4">
+        <Button color="danger" variant="solid" onClick={() => reset()}>
+          再試行
+        </Button>
+        <Button
+          color="default"
+          variant="bordered"
+          onClick={() => (window.location.href = '/')}
+        >
+          ホームに戻る
+        </Button>
       </div>
-      <button className="btn-danger mr-major-2" onClick={() => reset()}>
-        再試行
-      </button>
-      <button
-        className="btn-secondary"
-        onClick={() => (window.location.href = '/')}
-      >
-        ホームに戻る
-      </button>
     </div>
   )
 }
