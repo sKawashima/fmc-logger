@@ -55,5 +55,8 @@ export const getUserFromShowId = async (showId: string) => {
       showId,
     },
   })
+  if (!user) {
+    throw new Error(`User with showId ${showId} not found`)
+  }
   return user as User
 }

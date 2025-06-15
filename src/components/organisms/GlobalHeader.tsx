@@ -1,6 +1,5 @@
 'use client'
 
-import { Heading, Pane, majorScale } from 'evergreen-ui'
 import { LoginButton } from '../molecules/LoginButton'
 import { UserAvatar } from '../molecules/UserAvatar'
 import { User } from '@/services/user'
@@ -16,28 +15,19 @@ export const GlobalHeader = (props: Props) => {
 
   return (
     <header>
-      <Pane borderBottom="default">
-        <Pane
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          maxWidth={majorScale(160)}
-          marginX="auto"
-          paddingX={majorScale(2)}
-          paddingY={majorScale(1)}
-        >
-          <Heading
-            size={600}
-            cursor="pointer"
+      <div className="border-b border-gray-200">
+        <div className="flex justify-between items-center max-w-[1280px] mx-auto px-4 py-2">
+          <h1
+            className="text-2xl font-bold cursor-pointer hover:text-primary-600 transition-colors"
             onClick={() => {
               router.push('/')
             }}
           >
             FMC Logger
-          </Heading>
+          </h1>
           {isLogin ? <UserAvatar user={props.user} /> : <LoginButton />}
-        </Pane>
-      </Pane>
+        </div>
+      </div>
     </header>
   )
 }

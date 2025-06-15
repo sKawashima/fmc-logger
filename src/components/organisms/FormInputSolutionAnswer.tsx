@@ -1,63 +1,125 @@
 'use client'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
-import { Alert, Button, Pane, Textarea, TextareaField } from 'evergreen-ui'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { createSolutionFromData } from '@/app/actions/solution'
+import { Button, Chip, Textarea } from '@heroui/react'
+import { useFormState, useFormStatus } from 'react-dom'
 
 type Props = {
   scrambleId: number
 }
 
-export const FormInputSolutionAnswer = (props: Props) => {
-  const router = useRouter()
-  const [solutionError, setSolutionError] = useState<string | null>(null)
-  const [pushError, setPushError] = useState<string | null>(null)
+function SubmitButton() {
+  const { pending } = useFormStatus()
 
-  const onSubmit = async () => {
-    const solutionInputElement = document.getElementById(
-      'solutionInput',
-    ) as HTMLTextAreaElement
-    const commentInputElement = document.getElementById(
-      'commentInput',
-    ) as HTMLTextAreaElement
-    if (!solutionInputElement || !commentInputElement) return
+  return (
+    <Button
+      type="submit"
+      color="primary"
+      isLoading={pending}
+      isDisabled={pending}
+    >
+      {pending ? '送信中...' : '提出'}
+    </Button>
+  )
+}
+
+type FormState = {
+  message: string | null
+  errors: {
+    solution: string | null
+    comment: string | null
+  }
+}
+
+export const FormInputSolutionAnswer = (props: Props) => {
+  const initialState: FormState = {
+    message: null,
+    errors: {
+      solution: null,
+      comment: null,
+    },
+  }
+
+  const createSolutionWithId = async (
+    _prevState: FormState,
+    formData: FormData,
+  ): Promise<FormState> => {
+    const solution = formData.get('solution') as string
+    const comment = formData.get('comment') as string
 
     try {
-      cubeNotationNormalizer(solutionInputElement.value)
+      cubeNotationNormalizer(solution)
     } catch (e) {
-      setSolutionError('回転記号が正しくありません')
-      return
+      return {
+        message: null,
+        errors: {
+          solution: '回転記号が正しくありません',
+          comment: null,
+        },
+      }
     }
 
-    setSolutionError(null)
-    const responce = await fetch('/api/solution', {
-      method: 'POST',
-      body: JSON.stringify({
-        scrambleId: props.scrambleId,
-        solution: solutionInputElement.value,
-        comment: commentInputElement.value,
-      }),
-    })
-
-    if (responce) {
-      router.refresh()
-    } else {
-      setPushError('送信に失敗しました')
+    try {
+      await createSolutionFromData(props.scrambleId, solution, comment)
+      return {
+        message: 'success',
+        errors: {
+          solution: null,
+          comment: null,
+        },
+      }
+    } catch (error) {
+      return {
+        message: '送信に失敗しました',
+        errors: {
+          solution: null,
+          comment: null,
+        },
+      }
     }
   }
 
+  const [state, formAction] = useFormState(createSolutionWithId, initialState)
+
   return (
-    <Pane>
-      {solutionError && <Alert intent="danger">{solutionError}</Alert>}
-      <TextareaField
-        id="solutionInput"
-        placeholder="Solution"
-        validationMessage={solutionError}
-        isInvalid={Boolean(solutionError)}
-      />
-      <Textarea id="commentInput" placeholder="Comment" />
-      {pushError && <Alert intent="danger">{pushError}</Alert>}
-      <Button onClick={onSubmit}>submit</Button>
-    </Pane>
+    <div className="space-y-4">
+      {state.errors.solution && (
+        <Chip color="danger" variant="flat">
+          {state.errors.solution}
+        </Chip>
+      )}
+
+      <form action={formAction}>
+        <div className="space-y-4">
+          <Textarea
+            id="solution"
+            name="solution"
+            label="Solution"
+            placeholder="解法を入力してください"
+            minRows={4}
+            isRequired
+            isInvalid={!!state.errors.solution}
+            autoComplete="off"
+          />
+
+          <Textarea
+            id="comment"
+            name="comment"
+            label="Comment"
+            placeholder="コメント (任意)"
+            minRows={2}
+            autoComplete="off"
+          />
+
+          {state.message && state.message !== 'success' && (
+            <Chip color="danger" variant="flat">
+              {state.message}
+            </Chip>
+          )}
+
+          <SubmitButton />
+        </div>
+      </form>
+    </div>
   )
 }

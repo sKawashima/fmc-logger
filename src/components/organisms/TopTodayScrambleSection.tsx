@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, Heading, majorScale } from 'evergreen-ui'
+import { Button, Card, CardBody } from '@heroui/react'
 import { useRouter } from 'next/navigation'
 
 type Props = {
@@ -11,23 +11,20 @@ export const TopTodayScrambleSection = (props: Props) => {
   const router = useRouter()
 
   return (
-    <Card
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      gap={majorScale(2)}
-      marginTop={majorScale(2)}
-    >
-      <Heading size={700}>
-        Let&rsquo;s Challenge Today&rsquo;s Scramble!
-      </Heading>
-      <Button
-        onClick={() => router.push(props.linkUrl)}
-        size="large"
-        appearance="primary"
-      >
-        Challenge Today&rsquo;s Scramble
-      </Button>
+    <Card className="mt-4">
+      <CardBody className="flex flex-col items-center gap-4 p-8">
+        <h2 className="text-3xl font-bold text-gray-900">
+          Let&rsquo;s Challenge Today&rsquo;s Scramble!
+        </h2>
+        <Button
+          color="primary"
+          variant="solid"
+          size="lg"
+          onClick={() => router.push(props.linkUrl)}
+        >
+          Challenge Today&rsquo;s Scramble
+        </Button>
+      </CardBody>
     </Card>
   )
 }
