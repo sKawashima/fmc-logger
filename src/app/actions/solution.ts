@@ -11,7 +11,11 @@ export async function createSolution(formData: FormData) {
     throw new Error('Unauthorized')
   }
 
-  const scrambleId = Number(formData.get('scrambleId'))
+  const scrambleIdRaw = formData.get('scrambleId')
+  if (!scrambleIdRaw) {
+    throw new Error('Missing required fields')
+  }
+  const scrambleId = Number(scrambleIdRaw)
   const solution = formData.get('solution') as string
   const comment = formData.get('comment') as string | undefined
 
