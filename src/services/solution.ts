@@ -4,7 +4,7 @@ import cubejs from 'cubejs'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 
 export const makeSolution = async (
-  userEmail: string,
+  userEmail: string | null,
   scrambleId: number,
   userSolution: string,
   comment?: string,
@@ -28,11 +28,13 @@ export const makeSolution = async (
           id: Number(scrambleId),
         },
       },
-      user: {
-        connect: {
-          email: userEmail,
+      ...(userEmail && {
+        user: {
+          connect: {
+            email: userEmail,
+          },
         },
-      },
+      }),
       solution: userSolution,
       comment,
       score,

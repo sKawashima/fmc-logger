@@ -4,9 +4,11 @@ import { createSolutionFromData } from '@/app/actions/solution'
 import { Button, Chip, Textarea } from '@heroui/react'
 import { useFormState, useFormStatus } from 'react-dom'
 import { useState, useEffect } from 'react'
+import { User } from '@/services/user'
 
 type Props = {
   scrambleId: number
+  user: User | null
 }
 
 function SubmitButton() {
@@ -34,6 +36,7 @@ type FormState = {
 
 export const FormInputSolutionAnswer = (props: Props) => {
   const [isMobile, setIsMobile] = useState(false)
+  const [hasSubmittedAnonymously, setHasSubmittedAnonymously] = useState(false)
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -45,6 +48,14 @@ export const FormInputSolutionAnswer = (props: Props) => {
 
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
+
+  useEffect(() => {
+    // Check if anonymous user has already submitted for this scramble
+    if (!props.user) {
+      const submittedScrambles = JSON.parse(localStorage.getItem('anonymousSubmissions') || '[]')
+      setHasSubmittedAnonymously(submittedScrambles.includes(props.scrambleId))
+    }
+  }, [props.user, props.scrambleId])
 
   const initialState: FormState = {
     message: null,
@@ -75,6 +86,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
 
     try {
       await createSolutionFromData(props.scrambleId, solution, comment)
+      
       return {
         message: 'success',
         errors: {
@@ -95,8 +107,38 @@ export const FormInputSolutionAnswer = (props: Props) => {
 
   const [state, formAction] = useFormState(createSolutionWithId, initialState)
 
+  // Update localStorage when form submission succeeds
+  useEffect(() => {
+    if (state.message === 'success' && !props.user) {
+      const submittedScrambles = JSON.parse(localStorage.getItem('anonymousSubmissions') || '[]')
+      if (!submittedScrambles.includes(props.scrambleId)) {
+        submittedScrambles.push(props.scrambleId)
+        localStorage.setItem('anonymousSubmissions', JSON.stringify(submittedScrambles))
+      }
+      setHasSubmittedAnonymously(true)
+    }
+  }, [state.message, props.user, props.scrambleId])
+
+  // Show success message for anonymous users who have already submitted
+  if (!props.user && hasSubmittedAnonymously) {
+    return (
+      <div className="space-y-4">
+        <Chip color="success" variant="flat">
+          匿名ユーザーとして解答を送信しました
+        </Chip>
+        <p>匿名での投稿が完了しています。</p>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-4">
+      {!props.user && (
+        <Chip color="warning" variant="flat">
+          匿名ユーザーとして投稿します
+        </Chip>
+      )}
+      
       {state.errors.solution && (
         <Chip id="solution-error" color="danger" variant="flat">
           {state.errors.solution}

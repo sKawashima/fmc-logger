@@ -77,7 +77,7 @@ model Solution {
   score      Int?
   scramble   Scramble @relation(fields: [scrambleId], references: [id])
   scrambleId Int
-  user       User     @relation(fields: [userId], references: [id])
-  userId     String
+  user       User?    @relation(fields: [userId], references: [id])
+  userId     String?
   createdAt  DateTime @default(now())
 }

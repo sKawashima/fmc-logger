@@ -49,7 +49,7 @@ export default async function ScramblePage(props: Props) {
           <p>Your Comment: {solution.comment}</p>
         </>
       ) : (
-        <FormInputSolutionAnswer scrambleId={scrambleId} />
+        <FormInputSolutionAnswer scrambleId={scrambleId} user={user} />
       )}
     </>
   )

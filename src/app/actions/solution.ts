@@ -47,17 +47,13 @@ export async function createSolutionFromData(
 ) {
   const user = await getUser()
 
-  if (!user) {
-    throw new Error('Unauthorized')
-  }
-
   if (!scrambleId || !solution) {
     throw new Error('Missing required fields')
   }
 
   try {
     const newSolution = await makeSolution(
-      user.email,
+      user?.email || null,
       scrambleId,
       solution,
       comment,
