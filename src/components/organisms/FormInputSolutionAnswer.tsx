@@ -92,6 +92,15 @@ export const FormInputSolutionAnswer = (props: Props) => {
       <form action={formAction}>
         <div className="space-y-4">
           <Textarea
+            id="comment"
+            name="comment"
+            label="Comment"
+            placeholder="コメント (任意)"
+            minRows={8}
+            autoComplete="off"
+          />
+
+          <Textarea
             id="solution"
             name="solution"
             label="Solution"
@@ -99,15 +108,6 @@ export const FormInputSolutionAnswer = (props: Props) => {
             minRows={4}
             isRequired
             isInvalid={!!state.errors.solution}
-            autoComplete="off"
-          />
-
-          <Textarea
-            id="comment"
-            name="comment"
-            label="Comment"
-            placeholder="コメント (任意)"
-            minRows={2}
             autoComplete="off"
           />
 
