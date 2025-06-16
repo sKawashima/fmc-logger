@@ -3,6 +3,7 @@ import cubeNotationNormalizer from 'cube-notation-normalizer'
 import { createSolutionFromData } from '@/app/actions/solution'
 import { Button, Chip, Textarea } from '@heroui/react'
 import { useFormState, useFormStatus } from 'react-dom'
+import { useState, useEffect } from 'react'
 
 type Props = {
   scrambleId: number
@@ -32,6 +33,19 @@ type FormState = {
 }
 
 export const FormInputSolutionAnswer = (props: Props) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
   const initialState: FormState = {
     message: null,
     errors: {
@@ -84,13 +98,22 @@ export const FormInputSolutionAnswer = (props: Props) => {
   return (
     <div className="space-y-4">
       {state.errors.solution && (
-        <Chip color="danger" variant="flat">
+        <Chip id="solution-error" color="danger" variant="flat">
           {state.errors.solution}
         </Chip>
       )}
 
       <form action={formAction}>
         <div className="space-y-4">
+          <Textarea
+            id="comment"
+            name="comment"
+            label="Comment"
+            placeholder="コメント (任意)"
+            minRows={isMobile ? 4 : 8}
+            autoComplete="off"
+          />
+
           <Textarea
             id="solution"
             name="solution"
@@ -100,19 +123,11 @@ export const FormInputSolutionAnswer = (props: Props) => {
             isRequired
             isInvalid={!!state.errors.solution}
             autoComplete="off"
-          />
-
-          <Textarea
-            id="comment"
-            name="comment"
-            label="Comment"
-            placeholder="コメント (任意)"
-            minRows={2}
-            autoComplete="off"
+            aria-describedby={state.errors.solution ? "solution-error" : undefined}
           />
 
           {state.message && state.message !== 'success' && (
-            <Chip color="danger" variant="flat">
+            <Chip id="form-error" color="danger" variant="flat">
               {state.message}
             </Chip>
           )}
