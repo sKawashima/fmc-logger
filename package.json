@@ -22,7 +22,7 @@
     "@heroui/react": "^2.7.10",
     "@heroui/theme": "^2.4.17",
     "@prisma/client": "^6.9.0",
-    "@types/node": "24.0.1",
+    "@types/node": "24.0.3",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "cube-notation-normalizer": "^1.0.0",
