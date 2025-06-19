@@ -89,3 +89,65 @@ export const getSolutionsFromUserShowId = async (showId: string) => {
   })
   return solutions
 }
+
+export const getAllSolutionsForScramble = async (scrambleId: number) => {
+  const prisma = new PrismaClient()
+  const solutions = await prisma.solution.findMany({
+    where: {
+      scrambleId: Number(scrambleId),
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          showId: true,
+          image: true,
+        },
+      },
+    },
+    orderBy: [
+      {
+        score: 'asc',
+      },
+      {
+        createdAt: 'asc',
+      },
+    ],
+  })
+
+  return solutions
+}
+
+export const getTopSolutionsForScramble = async (scrambleId: number, limit: number = 10) => {
+  const prisma = new PrismaClient()
+  const solutions = await prisma.solution.findMany({
+    where: {
+      scrambleId: Number(scrambleId),
+      score: {
+        not: null,
+      },
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          showId: true,
+          image: true,
+        },
+      },
+    },
+    orderBy: [
+      {
+        score: 'asc',
+      },
+      {
+        createdAt: 'asc',
+      },
+    ],
+    take: limit,
+  })
+
+  return solutions
+}
