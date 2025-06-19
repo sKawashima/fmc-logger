@@ -3,9 +3,9 @@ erDiagram
 
   "Account" {
     String id "🗝️"
-    String type
-    String provider
-    String providerAccountId
+    String type 
+    String provider 
+    String providerAccountId 
     String refresh_token "❓"
     String access_token "❓"
     Int expires_at "❓"
@@ -14,14 +14,14 @@ erDiagram
     String id_token "❓"
     String session_state "❓"
     }
-
+  
 
   "Session" {
     String id "🗝️"
-    String sessionToken
-    DateTime expires
+    String sessionToken 
+    DateTime expires 
     }
-
+  
 
   "User" {
     String id "🗝️"
@@ -31,30 +31,30 @@ erDiagram
     String image "❓"
     String showId "❓"
     }
-
+  
 
   "VerificationToken" {
-    String identifier
-    String token
-    DateTime expires
+    String identifier 
+    String token 
+    DateTime expires 
     }
-
+  
 
   "Scramble" {
     Int id "🗝️"
-    String scramble
-    DateTime createdAt
+    String scramble 
+    DateTime createdAt 
     }
-
+  
 
   "Solution" {
     Int id "🗝️"
-    String solution
+    String solution 
     String comment "❓"
     Int score "❓"
-    DateTime createdAt
+    DateTime createdAt 
     }
-
+  
     "Account" o|--|| "User" : "user"
     "Session" o|--|| "User" : "user"
     "User" o{--}o "Account" : "accounts"
@@ -62,5 +62,5 @@ erDiagram
     "User" o{--}o "Solution" : "Solution"
     "Scramble" o{--}o "Solution" : "Solution"
     "Solution" o|--|| "Scramble" : "scramble"
-    "Solution" o|--|| "User" : "user"
+    "Solution" o|--|o "User" : "user"
 ```
