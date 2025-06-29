@@ -13,6 +13,7 @@
     "pre-install": "husky install",
     "lint-staged": "lint-staged",
     "migrate": "prisma format && prisma migrate dev && prisma generate",
+    "migrate:deploy": "prisma migrate deploy",
     "prisma-generate": "prisma generate",
     "studio": "prisma studio"
   },
