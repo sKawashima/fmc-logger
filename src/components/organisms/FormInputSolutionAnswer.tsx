@@ -5,6 +5,18 @@ import { Button, Chip, Textarea } from '@heroui/react'
 import { useFormState, useFormStatus } from 'react-dom'
 import { useState, useEffect } from 'react'
 import { User } from '@/services/user'
+import { scoreToText } from '@/services/solution'
+
+const ANONYMOUS_SUBMISSIONS_KEY = 'anonymousSubmissions'
+
+type AnonymousSolution = {
+  id: number
+  solution: string
+  comment: string | null
+  score: number | null
+  scrambleId: number
+  createdAt: string
+}
 
 type Props = {
   scrambleId: number
@@ -36,7 +48,7 @@ type FormState = {
 
 export const FormInputSolutionAnswer = (props: Props) => {
   const [isMobile, setIsMobile] = useState(false)
-  const [hasSubmittedAnonymously, setHasSubmittedAnonymously] = useState(false)
+  const [anonymousSolution, setAnonymousSolution] = useState<AnonymousSolution | null>(null)
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -52,8 +64,18 @@ export const FormInputSolutionAnswer = (props: Props) => {
   useEffect(() => {
     // Check if anonymous user has already submitted for this scramble
     if (!props.user) {
-      const submittedScrambles = JSON.parse(localStorage.getItem('anonymousSubmissions') || '[]')
-      setHasSubmittedAnonymously(submittedScrambles.includes(props.scrambleId))
+      try {
+        const anonymousSubmissions: AnonymousSolution[] = JSON.parse(
+          localStorage.getItem(ANONYMOUS_SUBMISSIONS_KEY) || '[]'
+        )
+        const existingSolution = anonymousSubmissions.find(
+          solution => solution.scrambleId === props.scrambleId
+        )
+        setAnonymousSolution(existingSolution || null)
+      } catch (error) {
+        console.warn('Failed to parse anonymous submissions from localStorage:', error)
+        setAnonymousSolution(null)
+      }
     }
   }, [props.user, props.scrambleId])
 
@@ -85,7 +107,31 @@ export const FormInputSolutionAnswer = (props: Props) => {
     }
 
     try {
-      await createSolutionFromData(props.scrambleId, solution, comment)
+      const result = await createSolutionFromData(props.scrambleId, solution, comment)
+      
+      // Store solution details in localStorage for anonymous users
+      if (result.solutionDetails && !props.user) {
+        try {
+          const anonymousSubmissions: AnonymousSolution[] = JSON.parse(
+            localStorage.getItem(ANONYMOUS_SUBMISSIONS_KEY) || '[]'
+          )
+          
+          // Remove any existing submission for this scramble
+          const filteredSubmissions = anonymousSubmissions.filter(
+            s => s.scrambleId !== props.scrambleId
+          )
+          
+          // Add the new submission
+          filteredSubmissions.push(result.solutionDetails as AnonymousSolution)
+          
+          localStorage.setItem(
+            ANONYMOUS_SUBMISSIONS_KEY, 
+            JSON.stringify(filteredSubmissions)
+          )
+        } catch (storageError) {
+          console.warn('Failed to store anonymous submission in localStorage:', storageError)
+        }
+      }
       
       return {
         message: 'success',
@@ -107,26 +153,40 @@ export const FormInputSolutionAnswer = (props: Props) => {
 
   const [state, formAction] = useFormState(createSolutionWithId, initialState)
 
-  // Update localStorage when form submission succeeds
+  // Update anonymous solution state when form submission succeeds
   useEffect(() => {
     if (state.message === 'success' && !props.user) {
-      const submittedScrambles = JSON.parse(localStorage.getItem('anonymousSubmissions') || '[]')
-      if (!submittedScrambles.includes(props.scrambleId)) {
-        submittedScrambles.push(props.scrambleId)
-        localStorage.setItem('anonymousSubmissions', JSON.stringify(submittedScrambles))
+      try {
+        const anonymousSubmissions: AnonymousSolution[] = JSON.parse(
+          localStorage.getItem(ANONYMOUS_SUBMISSIONS_KEY) || '[]'
+        )
+        const submittedSolution = anonymousSubmissions.find(
+          solution => solution.scrambleId === props.scrambleId
+        )
+        setAnonymousSolution(submittedSolution || null)
+      } catch (error) {
+        console.warn('Failed to update anonymous solution state:', error)
       }
-      setHasSubmittedAnonymously(true)
     }
   }, [state.message, props.user, props.scrambleId])
 
-  // Show success message for anonymous users who have already submitted
-  if (!props.user && hasSubmittedAnonymously) {
+  // Show solution results for anonymous users who have already submitted
+  if (!props.user && anonymousSolution) {
     return (
       <div className="space-y-4">
         <Chip color="success" variant="flat">
           匿名ユーザーとして解答を送信しました
         </Chip>
-        <p>匿名での投稿が完了しています。</p>
+        <div className="space-y-2">
+          <p><strong>Your Score:</strong> {scoreToText(anonymousSolution.score)}</p>
+          <p><strong>Your Solution:</strong> {anonymousSolution.solution}</p>
+          {anonymousSolution.comment && (
+            <p><strong>Your Comment:</strong> {anonymousSolution.comment}</p>
+          )}
+          <p className="text-small text-default-500">
+            送信日時: {new Date(anonymousSolution.createdAt).toLocaleString()}
+          </p>
+        </div>
       </div>
     )
   }

@@ -62,7 +62,19 @@ export async function createSolutionFromData(
     // Revalidate the scramble page to show the new solution
     revalidatePath(`/scramble/${scrambleId}`)
 
-    return { success: true, solution: newSolution }
+    return { 
+      success: true, 
+      solution: newSolution,
+      // Return solution details for anonymous users to store in localStorage
+      solutionDetails: !user ? {
+        id: newSolution?.id,
+        solution: solution,
+        comment: comment || null,
+        score: newSolution?.score || null,
+        scrambleId: scrambleId,
+        createdAt: new Date().toISOString()
+      } : null
+    }
   } catch (error) {
     throw new Error('Failed to create solution')
   }
