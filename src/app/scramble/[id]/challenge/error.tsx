@@ -3,10 +3,10 @@
 import { Button } from '@heroui/react'
 
 export default function Error({
-  error,
+  errorInfo,
   reset,
 }: {
-  error: Error & { digest?: string }
+  errorInfo: Error & { digest?: string }
   reset: () => void
 }) {
   return (

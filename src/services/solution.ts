@@ -3,6 +3,9 @@ import { PrismaClient } from '@prisma/client'
 import cubejs from 'cubejs'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 
+// PrismaClient singleton to avoid connection pool exhaustion
+const prisma = new PrismaClient()
+
 export const makeSolution = async (
   userEmail: string,
   scrambleId: number,
@@ -11,7 +14,7 @@ export const makeSolution = async (
 ) => {
   if (!scrambleId) return null
 
-  const prisma = new PrismaClient()
+  // Using singleton prisma instance
   const scramble = await prisma.scramble.findFirst({
     where: {
       id: Number(scrambleId),
@@ -56,7 +59,7 @@ const jadgeScore = (userSolution: string, scramble: string) => {
 }
 
 export const getSolution = async (scrambleId: number, userEmail: string) => {
-  const prisma = new PrismaClient()
+  // Using singleton prisma instance
   const solution = await prisma.solution.findFirst({
     where: {
       scrambleId: Number(scrambleId),
@@ -74,7 +77,7 @@ export const scoreToText = (score: number | null) => {
 }
 
 export const getSolutionsFromUserShowId = async (showId: string) => {
-  const prisma = new PrismaClient()
+  // Using singleton prisma instance
   const user = await prisma.user.findUnique({
     where: {
       showId,
@@ -91,7 +94,7 @@ export const getSolutionsFromUserShowId = async (showId: string) => {
 }
 
 export const getAllSolutionsForScramble = async (scrambleId: number) => {
-  const prisma = new PrismaClient()
+  // Using singleton prisma instance
   const solutions = await prisma.solution.findMany({
     where: {
       scrambleId: Number(scrambleId),
@@ -120,7 +123,7 @@ export const getAllSolutionsForScramble = async (scrambleId: number) => {
 }
 
 export const getTopSolutionsForScramble = async (scrambleId: number, limit: number = 10) => {
-  const prisma = new PrismaClient()
+  // Using singleton prisma instance
   const solutions = await prisma.solution.findMany({
     where: {
       scrambleId: Number(scrambleId),

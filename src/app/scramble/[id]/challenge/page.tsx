@@ -7,7 +7,9 @@ import { getUser } from '@/services/user'
 import { Button } from '@heroui/react'
 import { notFound, redirect } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import type { Metadata } from 'next'
+import { User } from '@/services/user'
+import { Solution } from '@prisma/client'
+import Loading from './loading'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -17,8 +19,8 @@ export default function ScrambleChallengePage({ params }: Props) {
   const [scrambleId, setScrambleId] = useState<number | null>(null)
   const [scramble, setScramble] = useState<string | null>(null)
   const [showScramble, setShowScramble] = useState(false)
-  const [user, setUser] = useState<any>(null)
-  const [solution, setSolution] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [solution, setSolution] = useState<Solution | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -60,17 +62,13 @@ export default function ScrambleChallengePage({ params }: Props) {
   }, [params])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   if (!user) {
     return <div>ログインが必要です</div>
   }
 
-  if (solution) {
-    redirect(`/scramble/${scrambleId}`)
-    return null
-  }
 
   return (
     <div className="space-y-6">

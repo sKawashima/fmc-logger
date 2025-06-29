@@ -7,7 +7,9 @@ import { Button, Card, CardBody, Avatar } from '@heroui/react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import type { Metadata } from 'next'
+import { User } from '@/services/user'
+import { Solution, Scramble } from '@prisma/client'
+import Loading from './challenge/loading'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -16,10 +18,10 @@ type Props = {
 
 export default function ScramblePage({ params }: Props) {
   const [scrambleId, setScrambleId] = useState<number | null>(null)
-  const [scramble, setScramble] = useState<any>(null)
-  const [user, setUser] = useState<any>(null)
-  const [userSolution, setUserSolution] = useState<any>(null)
-  const [allSolutions, setAllSolutions] = useState<any[]>([])
+  const [scramble, setScramble] = useState<Scramble | null>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [userSolution, setUserSolution] = useState<Solution | null>(null)
+  const [allSolutions, setAllSolutions] = useState<(Solution & { user: { id: string; name: string | null; showId: string | null; image: string | null } })[]>([])
   const [showDetails, setShowDetails] = useState(false)
   const [loading, setLoading] = useState(true)
 
@@ -63,7 +65,7 @@ export default function ScramblePage({ params }: Props) {
   }, [params])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   const canShowDetails = userSolution || showDetails
