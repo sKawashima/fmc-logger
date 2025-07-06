@@ -110,7 +110,8 @@ export const FormInputSolutionAnswer = (props: Props) => {
             name="comment"
             label="Comment"
             placeholder="コメント (任意)"
-            minRows={isMobile ? 4 : 8}
+            minRows={isMobile ? 6 : 12}
+            className="font-mono resize-y"
             autoComplete="off"
           />
 
@@ -120,6 +121,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
             label="Solution"
             placeholder="解法を入力してください"
             minRows={4}
+            className="font-mono"
             isRequired
             isInvalid={!!state.errors.solution}
             autoComplete="off"
