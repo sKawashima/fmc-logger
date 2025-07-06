@@ -89,3 +89,22 @@ export const getSolutionsFromUserShowId = async (showId: string) => {
   })
   return solutions
 }
+
+export const getAllSolutionsForScramble = async (scrambleId: number) => {
+  const prisma = new PrismaClient()
+  const solutions = await prisma.solution.findMany({
+    where: {
+      scrambleId: Number(scrambleId),
+    },
+    include: {
+      user: {
+        select: {
+          showId: true,
+          email: true,
+        },
+      },
+    },
+    orderBy: [{ score: 'asc' }, { createdAt: 'asc' }],
+  })
+  return solutions
+}
