@@ -11,25 +11,23 @@ import {
 } from '@heroui/react'
 import { scoreToText } from '@/services/solution'
 import Link from 'next/link'
+import type { Prisma } from '@prisma/client'
 
-type Solution = {
-  id: number
-  scrambleId: number
-  userId: number
-  solution: string
-  comment: string | null
-  score: number | null
-  createdAt: Date
-  user: {
-    showId: string | null
-    email: string
+type SolutionWithUser = Prisma.SolutionGetPayload<{
+  include: {
+    user: {
+      select: {
+        showId: true
+        email: true
+      }
+    }
   }
-}
+}>
 
 type Props = {
   scramble: string
-  userSolution?: Solution
-  allSolutions: Solution[]
+  userSolution?: SolutionWithUser
+  allSolutions: SolutionWithUser[]
   currentUserEmail?: string
 }
 
@@ -143,7 +141,7 @@ export function ScrambleResultsSection({
                         <span className="text-sm text-gray-500">
                           #{index + 1}
                         </span>
-                        {solution.user.showId ? (
+                        {solution.user?.showId ? (
                           <Link
                             href={`/user/${solution.user.showId}`}
                             className="text-blue-600 hover:underline"
@@ -152,7 +150,7 @@ export function ScrambleResultsSection({
                           </Link>
                         ) : (
                           <span className="text-gray-400">
-                            {solution.user.email === currentUserEmail
+                            {solution.user?.email === currentUserEmail
                               ? 'あなた'
                               : '匿名'}
                           </span>

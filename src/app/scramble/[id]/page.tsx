@@ -45,10 +45,15 @@ export default async function ScramblePage(props: Props) {
   // Get all solutions for this scramble
   const allSolutions = await getAllSolutionsForScramble(scrambleId)
 
+  // Find user's solution with full data from allSolutions
+  const userSolutionWithUser = userSolution
+    ? allSolutions.find((s) => s.userId === userSolution.userId)
+    : undefined
+
   return (
     <ScrambleResultsSection
       scramble={scramble.scramble}
-      userSolution={userSolution || undefined}
+      userSolution={userSolutionWithUser}
       allSolutions={allSolutions}
       currentUserEmail={user?.email}
     />
