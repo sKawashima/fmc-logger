@@ -1,0 +1,89 @@
+{
+  "pages": {
+    "home": {
+      "title": "ホーム",
+      "description": "FMC Loggerのホームページ - 今日のスクランブルと最新の記録を確認"
+    },
+    "user": {
+      "setId": {
+        "title": "ユーザーID設定",
+        "description": "FMC Loggerで使用するユーザーIDを設定します"
+      },
+      "profile": {
+        "description": "{userName}さんのFMC記録とソリューション一覧",
+        "notFound": {
+          "title": "ユーザーが見つかりません",
+          "description": "指定されたユーザーは存在しません"
+        }
+      }
+    },
+    "scramble": {
+      "title": "スクランブル {id}",
+      "description": "スクランブル {id} の詳細ページ",
+      "notFound": "スクランブルが見つかりません",
+      "challenge": {
+        "title": "チャレンジ - スクランブル {id}",
+        "description": "スクランブル {id} にチャレンジ",
+        "heading": "スクランブル {id} にチャレンジ",
+        "skipButton": "挑戦しない"
+      }
+    }
+  },
+  "app": {
+    "description": "FMCerのための記録管理ツール - Fewest Move Challengeの記録と進捗を管理"
+  },
+  "keywords": {
+    "rubiks_cube": "ルービックキューブ",
+    "speed_cube": "スピードキューブ",
+    "record_management": "記録管理"
+  },
+  "forms": {
+    "setUserId": {
+      "label": "ユーザーID",
+      "placeholder": "ユーザーIDを入力",
+      "error": {
+        "empty": "ユーザーIDを入力してください",
+        "submit": "送信に失敗しました"
+      },
+      "button": {
+        "loading": "設定中...",
+        "submit": "設定"
+      }
+    },
+    "solution": {
+      "comment": {
+        "placeholder": "コメント (任意)"
+      },
+      "solution": {
+        "placeholder": "解法を入力してください"
+      },
+      "error": {
+        "invalidNotation": "回転記号が正しくありません",
+        "submit": "送信に失敗しました"
+      },
+      "button": {
+        "loading": "送信中...",
+        "submit": "提出"
+      }
+    }
+  },
+  "scramble": {
+    "title": "スクランブル",
+    "notChallenged": "このスクランブルにはまだ挑戦していません",
+    "showAllAnswers": "みんなの回答を表示",
+    "showButton": "スクランブルを表示",
+    "yourAnswer": "あなたの回答",
+    "score": "スコア",
+    "solution": "解法",
+    "notes": "メモ",
+    "everyonesAnswers": "みんなの回答",
+    "you": "あなた",
+    "anonymous": "匿名",
+    "notesLabel": "メモ:"
+  },
+  "challenge": {
+    "showScrambleButton": "スクランブルを表示",
+    "showScrambleInstruction": "ボタンを押すとスクランブルが表示され、挑戦を開始できます",
+    "scrambleTitle": "スクランブル"
+  }
+}

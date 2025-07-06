@@ -1,0 +1,89 @@
+{
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "FMC Logger Homepage - Check today's scramble and latest records"
+    },
+    "user": {
+      "setId": {
+        "title": "User ID Settings",
+        "description": "Set your user ID for FMC Logger"
+      },
+      "profile": {
+        "description": "{userName}'s FMC records and solutions",
+        "notFound": {
+          "title": "User not found",
+          "description": "The specified user does not exist"
+        }
+      }
+    },
+    "scramble": {
+      "title": "Scramble {id}",
+      "description": "Scramble {id} details page",
+      "notFound": "Scramble not found",
+      "challenge": {
+        "title": "Challenge - Scramble {id}",
+        "description": "Challenge Scramble {id}",
+        "heading": "Challenge Scramble {id}",
+        "skipButton": "Skip Challenge"
+      }
+    }
+  },
+  "app": {
+    "description": "Record management tool for FMCers - Manage your Fewest Move Challenge records and progress"
+  },
+  "keywords": {
+    "rubiks_cube": "Rubik's Cube",
+    "speed_cube": "Speed Cube",
+    "record_management": "Record Management"
+  },
+  "forms": {
+    "setUserId": {
+      "label": "User ID",
+      "placeholder": "Enter user ID",
+      "error": {
+        "empty": "Please enter your user ID",
+        "submit": "Failed to submit"
+      },
+      "button": {
+        "loading": "Setting...",
+        "submit": "Set"
+      }
+    },
+    "solution": {
+      "comment": {
+        "placeholder": "Comment (optional)"
+      },
+      "solution": {
+        "placeholder": "Enter your solution"
+      },
+      "error": {
+        "invalidNotation": "Invalid rotation notation",
+        "submit": "Failed to submit"
+      },
+      "button": {
+        "loading": "Submitting...",
+        "submit": "Submit"
+      }
+    }
+  },
+  "scramble": {
+    "title": "Scramble",
+    "notChallenged": "You haven't challenged this scramble yet",
+    "showAllAnswers": "Show everyone's answers",
+    "showButton": "Show scramble",
+    "yourAnswer": "Your answer",
+    "score": "Score",
+    "solution": "Solution",
+    "notes": "Notes",
+    "everyonesAnswers": "Everyone's answers",
+    "you": "You",
+    "anonymous": "Anonymous",
+    "notesLabel": "Notes:"
+  },
+  "challenge": {
+    "showScrambleButton": "Show scramble",
+    "showScrambleInstruction": "Press the button to show the scramble and start your challenge",
+    "scrambleTitle": "Scramble"
+  }
+}
