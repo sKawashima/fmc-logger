@@ -11,8 +11,14 @@ export const TopTemplate = async () => {
       <div className="flex justify-center">
         <div className="relative">
           <Image src={imageCharacter} alt="Character" width={400} />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `
+                radial-gradient(ellipse at center, transparent 60%, white 100%)
+              `
+            }}
+          />
         </div>
       </div>
       <TopTodayScrambleSection linkUrl={`/scramble/${todayScramble.id}`} />
