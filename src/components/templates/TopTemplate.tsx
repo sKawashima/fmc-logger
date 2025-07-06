@@ -8,7 +8,9 @@ export const TopTemplate = async () => {
 
   return (
     <>
-      <Image src={imageCharacter} alt="Character" width={400} />
+      <div className="flex justify-center">
+        <Image src={imageCharacter} alt="Character" width={400} />
+      </div>
       <TopTodayScrambleSection linkUrl={`/scramble/${todayScramble.id}`} />
     </>
   )
