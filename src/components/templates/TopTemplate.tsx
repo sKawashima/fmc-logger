@@ -8,7 +8,7 @@ export const TopTemplate = async () => {
 
   return (
     <>
-      <Image src={imageCharacter} alt="Character" />
+      <Image src={imageCharacter} alt="Character" width={400} />
       <TopTodayScrambleSection linkUrl={`/scramble/${todayScramble.id}`} />
     </>
   )
