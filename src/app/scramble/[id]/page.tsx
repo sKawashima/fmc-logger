@@ -1,10 +1,9 @@
-import { FormInputSolutionAnswer } from '@/components/organisms/FormInputSolutionAnswer'
+import { ScrambleResultsSection } from '@/components/organisms/ScrambleResultsSection'
 import { getScramble } from '@/services/scramble'
-import { getSolution, scoreToText } from '@/services/solution'
+import { getSolution, getAllSolutionsForScramble } from '@/services/solution'
 import { getUser } from '@/services/user'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import type { Metadata } from 'next'
-import { Card, CardBody, CardHeader, Chip, Divider } from '@heroui/react'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -36,65 +35,27 @@ export default async function ScramblePage(props: Props) {
   if (!scramble) notFound()
 
   const user = await getUser()
+  const userSolution = user && (await getSolution(scrambleId, user.email))
 
-  const solution = user && (await getSolution(scrambleId, user.email))
+  // If not solved and authenticated, redirect to challenge page
+  if (user && !userSolution) {
+    redirect(`/scramble/${id}/challenge`)
+  }
+
+  // Get all solutions for this scramble
+  const allSolutions = await getAllSolutionsForScramble(scrambleId)
+
+  // Find user's solution with full data from allSolutions
+  const userSolutionWithUser = userSolution
+    ? allSolutions.find((s) => s.userId === userSolution.userId)
+    : undefined
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <h2 className="text-xl font-semibold">Today&apos;s Scramble</h2>
-        </CardHeader>
-        <CardBody>
-          <p className="font-mono text-lg bg-gray-50 p-4 rounded-lg">
-            {scramble?.scramble}
-          </p>
-        </CardBody>
-      </Card>
-
-      {solution ? (
-        <Card>
-          <CardHeader>
-            <h2 className="text-xl font-semibold">Your Results</h2>
-          </CardHeader>
-          <CardBody className="space-y-4">
-            <div>
-              <h3 className="text-lg font-medium mb-2">Score</h3>
-              <Chip
-                color={solution.score ? 'success' : 'danger'}
-                variant="solid"
-                size="lg"
-                className="text-lg font-bold"
-              >
-                {scoreToText(solution.score)}
-              </Chip>
-            </div>
-
-            <Divider />
-
-            <div>
-              <h3 className="text-lg font-medium mb-2">Solution</h3>
-              <p className="font-mono text-base bg-gray-50 p-4 rounded-lg">
-                {solution.solution}
-              </p>
-            </div>
-
-            {solution.comment && (
-              <>
-                <Divider />
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Comment</h3>
-                  <p className="text-base bg-gray-50 p-4 rounded-lg whitespace-pre-wrap">
-                    {solution.comment}
-                  </p>
-                </div>
-              </>
-            )}
-          </CardBody>
-        </Card>
-      ) : (
-        <FormInputSolutionAnswer scrambleId={scrambleId} />
-      )}
-    </div>
+    <ScrambleResultsSection
+      scramble={scramble.scramble}
+      userSolution={userSolutionWithUser}
+      allSolutions={allSolutions}
+      currentUserEmail={user?.email}
+    />
   )
 }
