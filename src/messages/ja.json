@@ -85,5 +85,14 @@
     "showScrambleButton": "スクランブルを表示",
     "showScrambleInstruction": "ボタンを押すとスクランブルが表示され、挑戦を開始できます",
     "scrambleTitle": "スクランブル"
+  },
+  "home": {
+    "todayChallenge": {
+      "title": "今日のスクランブルにチャレンジしよう！",
+      "button": "今日のスクランブルにチャレンジ"
+    }
+  },
+  "auth": {
+    "signIn": "サインイン"
   }
 }

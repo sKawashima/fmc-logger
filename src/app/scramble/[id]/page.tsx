@@ -45,7 +45,7 @@ export default async function ScramblePage(props: Props) {
 
   // Find user's solution with full data from allSolutions
   const userSolutionWithUser = userSolution
-    ? allSolutions.find((s) => s.userId === userSolution.userId)
+    ? allSolutions.find((s: any) => s.userId === userSolution.userId)
     : undefined
 
   return (

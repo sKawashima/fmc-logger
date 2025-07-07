@@ -85,5 +85,14 @@
     "showScrambleButton": "Show scramble",
     "showScrambleInstruction": "Press the button to show the scramble and start your challenge",
     "scrambleTitle": "Scramble"
+  },
+  "home": {
+    "todayChallenge": {
+      "title": "Let's Challenge Today's Scramble!",
+      "button": "Challenge Today's Scramble"
+    }
+  },
+  "auth": {
+    "signIn": "Sign in"
   }
 }
