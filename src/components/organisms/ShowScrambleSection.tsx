@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@heroui/react'
+import { useTranslations } from 'next-intl'
 import { FormInputSolutionAnswer } from './FormInputSolutionAnswer'
 
 export function ShowScrambleSection({
@@ -12,6 +13,7 @@ export function ShowScrambleSection({
   scrambleId: number
 }) {
   const [showScramble, setShowScramble] = useState(false)
+  const t = useTranslations('challenge')
 
   if (!showScramble) {
     return (
@@ -22,10 +24,10 @@ export function ShowScrambleSection({
           size="lg"
           onPress={() => setShowScramble(true)}
         >
-          スクランブルを表示
+          {t('showScrambleButton')}
         </Button>
         <p className="text-sm text-gray-500 mt-4">
-          ボタンを押すとスクランブルが表示され、挑戦を開始できます
+          {t('showScrambleInstruction')}
         </p>
       </div>
     )
@@ -34,7 +36,7 @@ export function ShowScrambleSection({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium mb-2">スクランブル</h3>
+        <h3 className="text-lg font-medium mb-2">{t('scrambleTitle')}</h3>
         <p className="font-mono text-lg bg-gray-50 p-4 rounded-lg">
           {scramble}
         </p>

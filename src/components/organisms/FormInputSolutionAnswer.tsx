@@ -2,6 +2,7 @@
 import cubeNotationNormalizer from 'cube-notation-normalizer'
 import { createSolutionFromData } from '@/app/actions/solution'
 import { Button, Chip, Textarea } from '@heroui/react'
+import { useTranslations } from 'next-intl'
 import { useFormState, useFormStatus } from 'react-dom'
 import { useState, useEffect } from 'react'
 
@@ -11,6 +12,7 @@ type Props = {
 
 function SubmitButton() {
   const { pending } = useFormStatus()
+  const t = useTranslations('forms.solution.button')
 
   return (
     <Button
@@ -19,7 +21,7 @@ function SubmitButton() {
       isLoading={pending}
       isDisabled={pending}
     >
-      {pending ? '送信中...' : '提出'}
+      {pending ? t('loading') : t('submit')}
     </Button>
   )
 }
@@ -34,6 +36,7 @@ type FormState = {
 
 export const FormInputSolutionAnswer = (props: Props) => {
   const [isMobile, setIsMobile] = useState(false)
+  const t = useTranslations('forms.solution')
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -67,7 +70,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
       return {
         message: null,
         errors: {
-          solution: '回転記号が正しくありません',
+          solution: t('error.invalidNotation'),
           comment: null,
         },
       }
@@ -84,7 +87,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
       }
     } catch (error) {
       return {
-        message: '送信に失敗しました',
+        message: t('error.submit'),
         errors: {
           solution: null,
           comment: null,
@@ -109,7 +112,7 @@ export const FormInputSolutionAnswer = (props: Props) => {
             id="comment"
             name="comment"
             label="Comment"
-            placeholder="コメント (任意)"
+            placeholder={t('comment.placeholder')}
             minRows={isMobile ? 6 : 12}
             className="font-mono resize-y"
             autoComplete="off"
@@ -119,13 +122,15 @@ export const FormInputSolutionAnswer = (props: Props) => {
             id="solution"
             name="solution"
             label="Solution"
-            placeholder="解法を入力してください"
+            placeholder={t('solution.placeholder')}
             minRows={4}
             className="font-mono"
             isRequired
             isInvalid={!!state.errors.solution}
             autoComplete="off"
-            aria-describedby={state.errors.solution ? "solution-error" : undefined}
+            aria-describedby={
+              state.errors.solution ? 'solution-error' : undefined
+            }
           />
 
           {state.message && state.message !== 'success' && (

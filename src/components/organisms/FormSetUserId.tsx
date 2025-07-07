@@ -2,6 +2,7 @@
 
 import { setUserShowIdFromData } from '@/app/actions/user'
 import { Button, Input } from '@heroui/react'
+import { useTranslations } from 'next-intl'
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -9,12 +10,13 @@ export const FormUpdateUserShowId = () => {
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
+  const t = useTranslations('forms.setUserId')
 
   const onSubmit = async (formData: FormData) => {
     const showId = formData.get('showId') as string
 
     if (!showId) {
-      setError('ユーザーIDを入力してください')
+      setError(t('error.empty'))
       return
     }
 
@@ -30,7 +32,7 @@ export const FormUpdateUserShowId = () => {
         if (error instanceof Error) {
           setError(error.message)
         } else {
-          setError('送信に失敗しました')
+          setError(t('error.submit'))
         }
       }
     })
@@ -44,8 +46,8 @@ export const FormUpdateUserShowId = () => {
             id="showId"
             name="showId"
             type="text"
-            label="ユーザーID"
-            placeholder="ユーザーIDを入力"
+            label={t('label')}
+            placeholder={t('placeholder')}
             isRequired
             isInvalid={!!error}
             errorMessage={error}
@@ -58,7 +60,7 @@ export const FormUpdateUserShowId = () => {
             isLoading={isPending}
             isDisabled={isPending}
           >
-            {isPending ? '設定中...' : '設定'}
+            {isPending ? t('button.loading') : t('button.submit')}
           </Button>
         </div>
       </form>
