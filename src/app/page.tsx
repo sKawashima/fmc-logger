@@ -1,15 +1,18 @@
 import { TopTemplate } from '@/components/templates/TopTemplate'
+import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'ホーム',
-  description:
-    'FMC Loggerのホームページ - 今日のスクランブルと最新の記録を確認',
-  openGraph: {
-    title: 'FMC Logger - ホーム',
-    description:
-      'FMC Loggerのホームページ - 今日のスクランブルと最新の記録を確認',
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('pages.home')
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: `FMC Logger - ${t('title')}`,
+      description: t('description'),
+    },
+  }
 }
 
 export default async function Home() {

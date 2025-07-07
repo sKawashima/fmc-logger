@@ -2,6 +2,7 @@ import { ScrambleResultsSection } from '@/components/organisms/ScrambleResultsSe
 import { getScramble } from '@/services/scramble'
 import { getSolution, getAllSolutionsForScramble } from '@/services/solution'
 import { getUser } from '@/services/user'
+import { getTranslations } from 'next-intl/server'
 import { notFound, redirect } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -12,17 +13,14 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const scramble = await getScramble(Number(id))
+  const t = await getTranslations('pages.scramble')
 
   return {
-    title: `スクランブル ${id}`,
-    description: scramble
-      ? `スクランブル ${id} の詳細ページ`
-      : 'スクランブルが見つかりません',
+    title: t('title', { id }),
+    description: scramble ? t('description', { id }) : t('notFound'),
     openGraph: {
-      title: `FMC Logger - スクランブル ${id}`,
-      description: scramble
-        ? `スクランブル ${id} の詳細ページ`
-        : 'スクランブルが見つかりません',
+      title: `FMC Logger - ${t('title', { id })}`,
+      description: scramble ? t('description', { id }) : t('notFound'),
     },
   }
 }
