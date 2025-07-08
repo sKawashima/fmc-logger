@@ -12,18 +12,20 @@ import {
 import { scoreToText } from '@/services/solution'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import type { Prisma } from '@prisma/client'
-
-type SolutionWithUser = Prisma.SolutionGetPayload<{
-  include: {
-    user: {
-      select: {
-        showId: true
-        email: true
-      }
-    }
-  }
-}>
+type SolutionWithUser = {
+  id: string | number
+  userId: string
+  scrambleId: number
+  solution: string
+  comment?: string | null
+  score?: number | null
+  createdAt?: Date
+  updatedAt?: Date
+  user?: {
+    showId?: string | null
+    email?: string | null
+  } | null
+}
 
 type Props = {
   scramble: string
@@ -96,7 +98,7 @@ export function ScrambleResultsSection({
                 size="lg"
                 className="text-lg font-bold"
               >
-                {scoreToText(userSolution.score)}
+                {scoreToText(userSolution.score || null)}
               </Chip>
             </div>
 
@@ -161,7 +163,7 @@ export function ScrambleResultsSection({
                         variant="flat"
                         size="md"
                       >
-                        {scoreToText(solution.score)}
+                        {scoreToText(solution.score || null)}
                       </Chip>
                     </div>
 

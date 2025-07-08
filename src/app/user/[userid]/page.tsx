@@ -40,7 +40,7 @@ export default async function UserPage(props: Props) {
     const solutions = await getSolutionsFromUserShowId(user.showId)
     const solutionWithScramble = solutions
       ? await Promise.all(
-          solutions.map(async (solution) => {
+          solutions.map(async (solution: any) => {
             const scramble = await getScramble(solution.scrambleId)
             return { solution, scramble }
           }),

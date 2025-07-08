@@ -11,6 +11,7 @@ const intlMiddleware = createIntlMiddleware({
 export function middleware(request: NextRequest) {
   // Handle internationalization first
   const intlResponse = intlMiddleware(request)
+  if (intlResponse) return intlResponse
 
   // Add custom headers to the response
   const requestHeaders = new Headers(request.headers)
