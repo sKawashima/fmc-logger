@@ -1,5 +1,5 @@
 import { GlobalLayout } from '@/components/templates/GlobalLayout'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import 'reset-css'
 import './globals.css'
@@ -61,8 +61,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const locale = await getLocale()
+
   return (
-    <html lang="ja">
+    <html lang={locale}>
       <body>
         <Providers>
           <main className="text-foreground bg-background">

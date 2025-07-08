@@ -18,6 +18,7 @@ function SubmitButton() {
     <Button
       type="submit"
       color="primary"
+      variant="solid"
       isLoading={pending}
       isDisabled={pending}
     >
