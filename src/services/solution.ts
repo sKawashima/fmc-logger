@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client'
 //@ts-ignore
 import cubejs from 'cubejs'
 import cubeNotationNormalizer from 'cube-notation-normalizer'
+import prisma from '@/lib/prisma'
 
 export const makeSolution = async (
   userEmail: string,
@@ -11,7 +11,6 @@ export const makeSolution = async (
 ) => {
   if (!scrambleId) return null
 
-  const prisma = new PrismaClient()
   const scramble = await prisma.scramble.findFirst({
     where: {
       id: Number(scrambleId),
@@ -56,7 +55,6 @@ const jadgeScore = (userSolution: string, scramble: string) => {
 }
 
 export const getSolution = async (scrambleId: number, userEmail: string) => {
-  const prisma = new PrismaClient()
   const solution = await prisma.solution.findFirst({
     where: {
       scrambleId: Number(scrambleId),
@@ -74,7 +72,6 @@ export const scoreToText = (score: number | null) => {
 }
 
 export const getSolutionsFromUserShowId = async (showId: string) => {
-  const prisma = new PrismaClient()
   const user = await prisma.user.findUnique({
     where: {
       showId,
@@ -91,7 +88,6 @@ export const getSolutionsFromUserShowId = async (showId: string) => {
 }
 
 export const getAllSolutionsForScramble = async (scrambleId: number) => {
-  const prisma = new PrismaClient()
   const solutions = await prisma.solution.findMany({
     where: {
       scrambleId: Number(scrambleId),
