@@ -86,5 +86,3 @@ pnpm start
 - `/user/setId`: Set your public user ID
 - `/user/[userid]`: User profile pages
 - `/scramble/[id]`: Individual scramble pages
-
-For more detailed development instructions, see `CLAUDE.md`.
