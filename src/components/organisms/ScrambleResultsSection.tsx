@@ -12,20 +12,18 @@ import {
 import { scoreToText } from '@/services/solution'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-type SolutionWithUser = {
-  id: string | number
-  userId: string
-  scrambleId: number
-  solution: string
-  comment?: string | null
-  score?: number | null
-  createdAt?: Date
-  updatedAt?: Date
-  user?: {
-    showId?: string | null
-    email?: string | null
-  } | null
-}
+import type { Prisma } from '@prisma/client'
+
+type SolutionWithUser = Prisma.SolutionGetPayload<{
+  include: {
+    user: {
+      select: {
+        showId: true
+        email: true
+      }
+    }
+  }
+}>
 
 type Props = {
   scramble: string
