@@ -16,16 +16,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
       title: `${user.name} (@${user.showId})`,
-      description: `${user.name}さんのFMC記録とソリューション一覧`,
+      description: `${user.name}'s FMC records and solutions`,
       openGraph: {
         title: `FMC Logger - ${user.name} (@${user.showId})`,
-        description: `${user.name}さんのFMC記録とソリューション一覧`,
+        description: `${user.name}'s FMC records and solutions`,
       },
     }
   } catch {
     return {
-      title: 'ユーザーが見つかりません',
-      description: '指定されたユーザーは存在しません',
+      title: 'User Not Found',
+      description: 'The specified user does not exist',
     }
   }
 }

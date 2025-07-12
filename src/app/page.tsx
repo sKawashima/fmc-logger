@@ -2,13 +2,13 @@ import { TopTemplate } from '@/components/templates/TopTemplate'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'ホーム',
+  title: 'Home',
   description:
-    'FMC Loggerのホームページ - 今日のスクランブルと最新の記録を確認',
+    "FMC Logger home page - Check today's scramble and latest records",
   openGraph: {
-    title: 'FMC Logger - ホーム',
+    title: 'FMC Logger - Home',
     description:
-      'FMC Loggerのホームページ - 今日のスクランブルと最新の記録を確認',
+      "FMC Logger home page - Check today's scramble and latest records",
   },
 }
 

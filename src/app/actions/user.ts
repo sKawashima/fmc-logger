@@ -15,7 +15,7 @@ export async function setUserShowId(formData: FormData) {
     const updatedUser = await updateUserShowId(showId)
 
     if (updatedUser === 'already exists') {
-      throw new Error('このIDは既に使用されています')
+      throw new Error('This ID is already in use')
     }
 
     // Revalidate and redirect to home page
@@ -24,11 +24,11 @@ export async function setUserShowId(formData: FormData) {
   } catch (error) {
     if (
       error instanceof Error &&
-      error.message === 'このIDは既に使用されています'
+      error.message === 'This ID is already in use'
     ) {
       throw error
     }
-    throw new Error('ユーザーID設定に失敗しました')
+    throw new Error('Failed to set user ID')
   }
 }
 
@@ -41,7 +41,7 @@ export async function setUserShowIdFromData(showId: string) {
     const updatedUser = await updateUserShowId(showId)
 
     if (updatedUser === 'already exists') {
-      throw new Error('このIDは既に使用されています')
+      throw new Error('This ID is already in use')
     }
 
     // Revalidate the layout to update user info
@@ -52,10 +52,10 @@ export async function setUserShowIdFromData(showId: string) {
   } catch (error) {
     if (
       error instanceof Error &&
-      error.message === 'このIDは既に使用されています'
+      error.message === 'This ID is already in use'
     ) {
       throw error
     }
-    throw new Error('ユーザーID設定に失敗しました')
+    throw new Error('Failed to set user ID')
   }
 }

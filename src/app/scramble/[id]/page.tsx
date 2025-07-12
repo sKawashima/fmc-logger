@@ -14,15 +14,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const scramble = await getScramble(Number(id))
 
   return {
-    title: `スクランブル ${id}`,
+    title: `Scramble ${id}`,
     description: scramble
-      ? `スクランブル ${id} の詳細ページ`
-      : 'スクランブルが見つかりません',
+      ? `Scramble ${id} details page`
+      : 'Scramble not found',
     openGraph: {
-      title: `FMC Logger - スクランブル ${id}`,
+      title: `FMC Logger - Scramble ${id}`,
       description: scramble
-        ? `スクランブル ${id} の詳細ページ`
-        : 'スクランブルが見つかりません',
+        ? `Scramble ${id} details page`
+        : 'Scramble not found',
     },
   }
 }

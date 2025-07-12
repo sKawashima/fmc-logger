@@ -19,20 +19,20 @@ export default function Error({
       <Alert
         color="danger"
         variant="solid"
-        title="スクランブルの読み込みに失敗しました"
-        description="スクランブルデータの取得中にエラーが発生しました。ネットワーク接続を確認して、再度お試しください。"
+        title="Failed to Load Scramble"
+        description="An error occurred while retrieving scramble data. Please check your network connection and try again."
         className="mb-6"
       />
       <div className="flex gap-4">
         <Button color="danger" variant="solid" onClick={() => reset()}>
-          再試行
+          Try Again
         </Button>
         <Button
           color="default"
           variant="bordered"
           onClick={() => window.history.back()}
         >
-          戻る
+          Go Back
         </Button>
       </div>
     </div>
