@@ -32,7 +32,7 @@
     "eslint": "9.29.0",
     "eslint-config-next": "15.3.4",
     "framer-motion": "^12.20.1",
-    "next": "15.3.4",
+    "next": "15.3.5",
     "next-auth": "^4.24.11",
     "prisma": "^6.11.1",
     "prisma-erd-generator": "^2.0.4",
