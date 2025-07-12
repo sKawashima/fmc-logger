@@ -67,7 +67,6 @@ eval "$(fnm env --shell bash)" && fnm use 22
 ### HeroUI (formerly NextUI) Critical Setup
 
 1. **Tailwind CSS バージョン**
-
    - 必ずTailwind CSS v3.xを使用（v4はまだサポートされていない）
    - 現在: v3.4.0
 
@@ -81,7 +80,6 @@ eval "$(fnm env --shell bash)" && fnm use 22
    ```
 
 3. **設定ファイル**
-
    - `tailwind.config.mjs` (ESモジュール形式)
    - `postcss.config.mjs` (ESモジュール形式)
    - プラグインは`@heroui/theme`からインポート
@@ -127,12 +125,10 @@ eval "$(fnm env --shell bash)" && fnm use 22
 ## Important Notes
 
 1. **公式ドキュメント**: https://heroui.com/docs/
-
    - HeroUIは頻繁に更新されるため、常に最新のドキュメントを参照
    - 特にTailwind CSS v4対応状況を確認
 
 2. **GitHub Issues**: https://github.com/heroui-inc/heroui/issues
-
    - 既知の問題や回避策を確認
 
 3. **Stack Overflow**:
