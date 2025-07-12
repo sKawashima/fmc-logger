@@ -8,10 +8,10 @@ A web application for tracking FMC (Fewest Moves Challenge) solutions and daily 
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.3.3 with App Router
+- **Framework**: Next.js with App Router
 - **Database**: PostgreSQL with Prisma ORM
 - **Authentication**: NextAuth.js with Prisma adapter
-- **Styling**: Tailwind CSS v3 + HeroUI (formerly NextUI)
+- **Styling**: Tailwind CSS + HeroUI (formerly NextUI)
 - **Language**: TypeScript
 - **Package Manager**: pnpm
 
@@ -19,14 +19,8 @@ A web application for tracking FMC (Fewest Moves Challenge) solutions and daily 
 
 ### Prerequisites
 
-- **Node.js**: Use fnm to manage Node.js version
 - **Database**: PostgreSQL (managed via Docker)
 - **Package Manager**: pnpm
-
-```bash
-# Set Node.js version to 22
-eval "$(fnm env --shell bash)" && fnm use 22
-```
 
 ## Development
 
