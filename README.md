@@ -1,40 +1,88 @@
-**※production branchへのマージは開発が再開するまで基本月1とする**
+# FMC Logger
 
 [![Build CI](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/sKawashima/fmc-logger/actions/workflows/ci.yml) ![Last Commit](https://img.shields.io/github/last-commit/sKawashima/fmc-logger/master.svg) ![My FMC Best is 26](https://img.shields.io/badge/My_FMC_Best-26-blue)
 
-This project development has stopped...
+A web application for tracking FMC (Fewest Moves Challenge) solutions and daily scrambles.
 
 ![](./src/components/atoms/imageCharacter.png)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Tech Stack
 
-I use [EVERGREEN](https://evergreen.segment.com/) as a UI framework.
+- **Framework**: Next.js with App Router
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: NextAuth.js with Prisma adapter
+- **Styling**: Tailwind CSS + HeroUI (formerly NextUI)
+- **Language**: TypeScript
+- **Package Manager**: pnpm
 
-## Getting Started
+## Environment Setup
 
-First, run the development server:
+### Prerequisites
+
+- **Database**: PostgreSQL (managed via Docker)
+- **Package Manager**: pnpm
+
+## Development
 
 ```bash
+# Install dependencies
+pnpm install
+
+# Start development server (Next.js + PostgreSQL)
 pnpm dev
+
+# Start only Next.js app
+pnpm dev:app
+
+# Start only PostgreSQL database
+pnpm dev:db
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Management
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# Run Prisma migrations
+pnpm migrate
 
-## Learn More
+# Generate Prisma client
+pnpm prisma-generate
 
-To learn more about Next.js, take a look at the following resources:
+# Open Prisma Studio
+pnpm studio
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Code Quality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+# Run linting
+pnpm lint
 
-## Deploy on Vercel
+# Format code
+pnpm format
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Build & Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+```
+
+## Application Features
+
+- **Daily Scrambles**: FMC scrambles generated daily
+- **Solution Tracking**: Submit and track your FMC solutions
+- **User Profiles**: Public profiles with solution history
+- **Authentication**: Secure login with NextAuth.js
+
+## Key Routes
+
+- `/`: Today's scramble challenge
+- `/user/setId`: Set your public user ID
+- `/user/[userid]`: User profile pages
+- `/scramble/[id]`: Individual scramble pages
