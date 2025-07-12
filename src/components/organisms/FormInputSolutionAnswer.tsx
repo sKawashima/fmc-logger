@@ -125,7 +125,9 @@ export const FormInputSolutionAnswer = (props: Props) => {
             isRequired
             isInvalid={!!state.errors.solution}
             autoComplete="off"
-            aria-describedby={state.errors.solution ? "solution-error" : undefined}
+            aria-describedby={
+              state.errors.solution ? 'solution-error' : undefined
+            }
           />
 
           {state.message && state.message !== 'success' && (
