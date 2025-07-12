@@ -21,7 +21,7 @@ export default function Error({
           color="danger"
           variant="solid"
           title="An Error Occurred"
-          description="We apologize, but an unexpected error has occurred. Please try again after a while."
+          description="We apologize, but an unexpected error has occurred. Please try again later."
           className="mb-4"
         />
         <Button color="danger" variant="solid" onClick={() => reset()}>

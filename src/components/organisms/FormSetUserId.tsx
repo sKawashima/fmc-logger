@@ -54,6 +54,7 @@ export const FormUpdateUserShowId = () => {
           <Button
             type="submit"
             color="primary"
+            variant="solid"
             fullWidth
             isLoading={isPending}
             isDisabled={isPending}

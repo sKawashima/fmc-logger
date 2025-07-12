@@ -71,7 +71,7 @@ export function ScrambleResultsSection({
             <div className="text-center py-4">
               <Button
                 color="primary"
-                variant="flat"
+                variant="solid"
                 onPress={() => setShowScramble(true)}
               >
                 Show Scramble

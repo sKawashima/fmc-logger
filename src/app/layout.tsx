@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: [
     'FMC',
     'Fewest Move Challenge',
-    'Rubiks Cube',
+    "Rubik's Cube",
     'Speedcubing',
     'Record Management',
   ],
