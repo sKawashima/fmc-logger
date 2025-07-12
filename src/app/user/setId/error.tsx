@@ -19,12 +19,12 @@ export default function Error({
       <Alert
         color="danger"
         variant="solid"
-        title="ユーザーID設定でエラーが発生しました"
-        description="ユーザーID設定の処理中にエラーが発生しました。再度お試しいただくか、しばらく時間をおいてからアクセスしてください。"
+        title="Error in User ID Settings"
+        description="An error occurred while processing the user ID settings. Please try again or wait a while before accessing."
         className="mb-6"
       />
       <Button color="danger" variant="solid" onClick={() => reset()}>
-        再試行
+        Try Again
       </Button>
     </div>
   )

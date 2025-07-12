@@ -47,20 +47,20 @@ export function ScrambleResultsSection({
       {/* Scramble Card */}
       <Card>
         <CardHeader>
-          <h2 className="text-xl font-semibold">スクランブル</h2>
+          <h2 className="text-xl font-semibold">Scramble</h2>
         </CardHeader>
         <CardBody>
           {!shouldShowContent ? (
             <div className="text-center py-4">
               <p className="text-gray-500 mb-4">
-                このスクランブルにはまだ挑戦していません
+                You haven&apos;t attempted this scramble yet
               </p>
               <Button
                 color="primary"
                 variant="solid"
                 onPress={() => setShowAllAnswers(true)}
               >
-                みんなの回答を表示
+                Show Everyone&apos;s Answers
               </Button>
             </div>
           ) : showScramble ? (
@@ -71,10 +71,10 @@ export function ScrambleResultsSection({
             <div className="text-center py-4">
               <Button
                 color="primary"
-                variant="flat"
+                variant="solid"
                 onPress={() => setShowScramble(true)}
               >
-                スクランブルを表示
+                Show Scramble
               </Button>
             </div>
           )}
@@ -85,11 +85,11 @@ export function ScrambleResultsSection({
       {userSolution && (
         <Card>
           <CardHeader>
-            <h2 className="text-xl font-semibold">あなたの回答</h2>
+            <h2 className="text-xl font-semibold">Your Answer</h2>
           </CardHeader>
           <CardBody className="space-y-4">
             <div>
-              <h3 className="text-lg font-medium mb-2">スコア</h3>
+              <h3 className="text-lg font-medium mb-2">Score</h3>
               <Chip
                 color={userSolution.score ? 'success' : 'danger'}
                 variant="solid"
@@ -103,7 +103,7 @@ export function ScrambleResultsSection({
             <Divider />
 
             <div>
-              <h3 className="text-lg font-medium mb-2">解法</h3>
+              <h3 className="text-lg font-medium mb-2">Solution</h3>
               <p className="font-mono text-base bg-gray-50 p-4 rounded-lg">
                 {userSolution.solution}
               </p>
@@ -113,7 +113,7 @@ export function ScrambleResultsSection({
               <>
                 <Divider />
                 <div>
-                  <h3 className="text-lg font-medium mb-2">メモ</h3>
+                  <h3 className="text-lg font-medium mb-2">Notes</h3>
                   <p className="text-base bg-gray-50 p-4 rounded-lg whitespace-pre-wrap">
                     {userSolution.comment}
                   </p>
@@ -128,7 +128,7 @@ export function ScrambleResultsSection({
       {shouldShowContent && (
         <Card>
           <CardHeader>
-            <h2 className="text-xl font-semibold">みんなの回答</h2>
+            <h2 className="text-xl font-semibold">Everyone&apos;s Answers</h2>
           </CardHeader>
           <CardBody>
             <div className="space-y-4">
@@ -151,8 +151,8 @@ export function ScrambleResultsSection({
                         ) : (
                           <span className="text-gray-400">
                             {solution.user?.email === currentUserEmail
-                              ? 'あなた'
-                              : '匿名'}
+                              ? 'You'
+                              : 'Anonymous'}
                           </span>
                         )}
                       </div>
@@ -173,7 +173,7 @@ export function ScrambleResultsSection({
 
                     {solution.comment && (
                       <div>
-                        <p className="text-sm text-gray-600 mb-1">メモ:</p>
+                        <p className="text-sm text-gray-600 mb-1">Notes:</p>
                         <p className="text-sm bg-gray-50 p-3 rounded-lg whitespace-pre-wrap">
                           {solution.comment}
                         </p>

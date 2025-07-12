@@ -14,7 +14,7 @@ export const GlobalLayout = async (props: Props) => {
   const headersList = await headers()
   const pathname = headersList.get('x-pathname') || ''
 
-  // /user/setId ページではリダイレクトをスキップ
+  // Skip redirect on /user/setId page
   if (user && !user.showId && pathname !== '/user/setId') {
     redirect('/user/setId')
   }

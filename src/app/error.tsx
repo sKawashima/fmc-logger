@@ -20,12 +20,12 @@ export default function Error({
         <Alert
           color="danger"
           variant="solid"
-          title="エラーが発生しました"
-          description="申し訳ございませんが、予期しないエラーが発生しました。しばらくしてから再度お試しください。"
+          title="An Error Occurred"
+          description="We apologize, but an unexpected error has occurred. Please try again later."
           className="mb-4"
         />
         <Button color="danger" variant="solid" onClick={() => reset()}>
-          再試行
+          Try Again
         </Button>
       </div>
     </div>

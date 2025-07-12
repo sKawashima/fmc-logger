@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     template: '%s | FMC Logger',
   },
   description:
-    'FMCerのための記録管理ツール - Fewest Move Challengeの記録と進捗を管理',
+    'Record management tool for FMC players - Manage your Fewest Move Challenge records and progress',
   keywords: [
     'FMC',
     'Fewest Move Challenge',
-    'ルービックキューブ',
-    'スピードキューブ',
-    '記録管理',
+    "Rubik's Cube",
+    'Speedcubing',
+    'Record Management',
   ],
   authors: [{ name: 'FMC Logger Team' }],
   creator: 'FMC Logger Team',
@@ -27,17 +27,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'ja_JP',
+    locale: 'en_US',
     url: '/',
     title: 'FMC Logger',
     description:
-      'FMCerのための記録管理ツール - Fewest Move Challengeの記録と進捗を管理',
+      'Record management tool for FMC players - Manage your Fewest Move Challenge records and progress',
     siteName: 'FMC Logger',
   },
   twitter: {
     card: 'summary',
     title: 'FMC Logger',
-    description: 'FMCerのための記録管理ツール',
+    description: 'Record management tool for FMC players',
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
+    <html lang="en">
       <body>
         <Providers>
           <main className="text-foreground bg-background">

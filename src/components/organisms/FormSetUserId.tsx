@@ -14,7 +14,7 @@ export const FormUpdateUserShowId = () => {
     const showId = formData.get('showId') as string
 
     if (!showId) {
-      setError('ユーザーIDを入力してください')
+      setError('Please enter a user ID')
       return
     }
 
@@ -23,14 +23,14 @@ export const FormUpdateUserShowId = () => {
     startTransition(async () => {
       try {
         await setUserShowIdFromData(showId)
-        // 成功時にホームページにリダイレクト
+        // Redirect to home page on success
         router.push('/')
         router.refresh()
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message)
         } else {
-          setError('送信に失敗しました')
+          setError('Submission failed')
         }
       }
     })
@@ -44,8 +44,8 @@ export const FormUpdateUserShowId = () => {
             id="showId"
             name="showId"
             type="text"
-            label="ユーザーID"
-            placeholder="ユーザーIDを入力"
+            label="User ID"
+            placeholder="Enter user ID"
             isRequired
             isInvalid={!!error}
             errorMessage={error}
@@ -54,11 +54,12 @@ export const FormUpdateUserShowId = () => {
           <Button
             type="submit"
             color="primary"
+            variant="solid"
             fullWidth
             isLoading={isPending}
             isDisabled={isPending}
           >
-            {isPending ? '設定中...' : '設定'}
+            {isPending ? 'Setting...' : 'Set'}
           </Button>
         </div>
       </form>

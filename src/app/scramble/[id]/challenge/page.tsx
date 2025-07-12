@@ -16,15 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const scramble = await getScramble(Number(id))
 
   return {
-    title: `チャレンジ - スクランブル ${id}`,
-    description: scramble
-      ? `スクランブル ${id} にチャレンジ`
-      : 'スクランブルが見つかりません',
+    title: `Challenge - Scramble ${id}`,
+    description: scramble ? `Challenge scramble ${id}` : 'Scramble not found',
     openGraph: {
-      title: `FMC Logger - チャレンジ - スクランブル ${id}`,
-      description: scramble
-        ? `スクランブル ${id} にチャレンジ`
-        : 'スクランブルが見つかりません',
+      title: `FMC Logger - Challenge - Scramble ${id}`,
+      description: scramble ? `Challenge scramble ${id}` : 'Scramble not found',
     },
   }
 }
@@ -48,12 +44,10 @@ export default async function ScrambleChallengePage(props: Props) {
     <div className="space-y-6">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <h2 className="text-xl font-semibold">
-            スクランブル {id} にチャレンジ
-          </h2>
+          <h2 className="text-xl font-semibold">Challenge Scramble {id}</h2>
           <Link href={`/scramble/${id}`}>
             <Button color="default" variant="flat">
-              挑戦しない
+              Skip Challenge
             </Button>
           </Link>
         </CardHeader>

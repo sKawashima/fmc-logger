@@ -14,11 +14,11 @@ export default function NotFound() {
     >
       <div style={{ maxWidth: '480px' }}>
         <h2 style={{ color: '#d14343', marginBottom: '16px' }}>
-          ページが見つかりません
+          Page Not Found
         </h2>
         <p style={{ marginBottom: '24px', color: '#666' }}>
-          お探しのページは存在しないか、移動された可能性があります。
-          URLをご確認いただくか、ホームページから再度アクセスしてください。
+          The page you are looking for does not exist or may have been moved.
+          Please check the URL or access again from the home page.
         </p>
         <Link
           href="/"
@@ -31,7 +31,7 @@ export default function NotFound() {
             borderRadius: '4px',
           }}
         >
-          ホームに戻る
+          Return to Home
         </Link>
       </div>
     </div>

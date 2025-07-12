@@ -19,20 +19,20 @@ export default function Error({
       <Alert
         color="danger"
         variant="solid"
-        title="ユーザー情報の読み込みに失敗しました"
-        description="ユーザーデータの取得中にエラーが発生しました。ユーザーが存在しないか、アクセス権限がない可能性があります。"
+        title="Failed to Load User Information"
+        description="An error occurred while retrieving user data. The user may not exist or you may not have access permissions."
         className="mb-6"
       />
       <div className="flex gap-4">
         <Button color="danger" variant="solid" onClick={() => reset()}>
-          再試行
+          Try Again
         </Button>
         <Button
           color="default"
           variant="bordered"
           onClick={() => (window.location.href = '/')}
         >
-          ホームに戻る
+          Return to Home
         </Button>
       </div>
     </div>
