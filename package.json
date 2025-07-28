@@ -36,7 +36,7 @@
     "next-auth": "^4.24.11",
     "prisma": "^6.11.1",
     "prisma-erd-generator": "^2.0.4",
-    "react": "19.1.0",
+    "react": "19.1.1",
     "react-dom": "19.1.0",
     "reset-css": "^5.0.2",
     "scrambo": "^0.3.0",
